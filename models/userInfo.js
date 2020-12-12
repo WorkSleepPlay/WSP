@@ -1,3 +1,5 @@
+
+var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
     var userInfo = sequelize.define("userInfo", {
       fullName: {
@@ -33,14 +35,14 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    // userInfo.associate = function(models) {
-    //   // We're saying that a Post should belong to an Author
-    //   // A Post can't be created without an Author due to the foreign key constraint
-    //   Post.belongsTo(models.userInfo, {
-    //     foreignKey: {
-    //       allowNull: false
-    //     }
-    //   });
-    // };
+    userInfo.prototype.validPassword = function(password) {
+     return bcrypt.compareSync(password, this.password);
+     };
+                                        
+    userInfo.addHook("beforeCreate", function(user) {
+    userInfo.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    });
     return userInfo;
   };
+
+
