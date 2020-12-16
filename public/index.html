@@ -12,52 +12,37 @@
       body {
         background-image:url("./assets/wsp\ background.jpg");
         background-repeat: no-repeat;
-        background-attachment: fixed; 
+        background-attachment:fixed;
         background-size: cover;
       }
     </style>
 </head>
 <body>
-    <nav>
-      <div id="offcanvas-full-screen" class="offcanvas-full-screen" data-off-canvas data-transition="overlap">
-        <div class="offcanvas-full-screen-inner">
-          <button class="offcanvas-full-screen-close" aria-label="Close menu" type="button" data-close>
-            <span aria-hidden="true">&times;</span>
-          </button>
-      
-          <ul class="offcanvas-full-screen-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact us</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="off-canvas-content" data-off-canvas-content>
-        <div class="top-bar">
-          <h1 class="top-bar-title">
-            <strong>Work. Sleep. Play.</strong>
-          </h1>
-          <div class="top-bar-right">
-            <button class="menu-icon dark" type="button" data-toggle="offcanvas-full-screen"></button>
-          </div>
-        </div>
-      </div>
-    </nav>
-<main>
+  <header class="subnav-hero-section">
+    <h1 class="subnav-hero-headline">Work. Sleep. Play.</h1>
+    <ul class="subnav-hero-subnav">
+        <li><a href="">Profile</a></li>
+        <li><a href="">Home</a></li>
+    </ul>
+</header>
+<main class="flex">
      <!-- use button tag for on page actions -->
-     <div class=row>
-      <div class="column">
-         <button class="button button-rounded-hover">Hover Button</button>
-       
-      
-         <button class="button button-rounded-hover">Hover Button</button>
-       
-       
-        <button class="button button-rounded-hover">Hover Button</button>
-      </div>
+  <div class="row">
+    <div class="column">
+         <button class="button button-rounded-hover" id="b1"> WORK </button>
+    </div>  
+  <div class="row"> 
+    <div class="column">
+         <button class="button button-rounded-hover" id="b2"> SLEEP </button>
     </div>
+  </div> 
+  <div class="row">
+    <div class="column">
+         <button class="button button-rounded-hover" id="b3"> PLAY </button>
+    </div> 
+  
+  </div>   
+   
 </main>
 
 
