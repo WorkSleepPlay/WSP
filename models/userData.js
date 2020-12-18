@@ -16,8 +16,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DATEONLY,
             allowNull: true,
         },
-        loginDuration: {
-            type: DataTypes.DATEONLY,
+        daysActive: {
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
     }, {
