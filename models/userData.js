@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true,
         },
         play: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DATE,
             allowNull: true,
         },
         loginDate: {
@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true,
         },
         loginDuration: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DATEONLY,
             allowNull: true,
         },
     }, {
