@@ -115,10 +115,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!-- CONTACT -->
 ## Contact
 
-Maranda Zwieschowski - mrzwies@gmail.com
-Nadine Delaire - ndelaire16@gmail.com 
-Selma Elgabalawy - (salmosha88@gmail.com)  
-Amber Swartz - (asriley144@gmail.com) 
+Maranda Zwieschowski - github username: marandaz
+Nadine Delaire - github username: ndelaire
+Selma Elgabalawy - github username: selma-e
+Amber Swartz - github username: ASwartz14
 
 
 Project Link: [https://WorkSleepPlay.github.io/WSP/](https://WorkSleepPlay.github.io/WSP/)
