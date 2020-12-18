@@ -132,8 +132,210 @@ p {
  padding-top: 70px;
  padding-bottom: 70px;
 }
- 
-  .footer {
+
+/*////////////////////////////////////////*/
+/* CSS for TOP BLOCK on profile page */
+/*////////////////////////////////////////*/
+
+.work-feature-block {
+  padding: 10px 0;
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+}
+
+.work-feature-block-image {
+  display: block;
+  margin: auto;
+  padding: 10px 0;
+}
+
+/*////////////////////////////////////////*/
+/* CSS for DIVIDER on profile page */
+/*////////////////////////////////////////*/
+
+.type-sidelines {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.type-sidelines span {
+  display: inline-block;
+  position: relative;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.type-sidelines span:before, .type-sidelines span:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 9999px;
+  top: 50%;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.type-sidelines span:before {
+  right: 100%;
+}
+
+.type-sidelines span:after {
+  left: 100%;
+}
+
+.double {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.double span {
+  display: inline-block;
+  position: relative;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.double span:before, .double span:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 9999px;
+  top: 50%;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  height: 0.5em;
+  margin-top: -0.25em;
+}
+
+.double span:before {
+  right: 100%;
+}
+
+.double span:after {
+  left: 100%;
+}
+
+.custom {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.custom span {
+  display: inline-block;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.custom span:before, .custom span:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  border-top-style: dotted;
+  border-top-width: 4px;
+  border-top-color: #2980b9;
+  margin-top: -2px;
+}
+
+.custom span:before {
+  right: 100%;
+}
+
+.custom span:after {
+  left: 100%;
+}
+
+.custom-2 {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.custom-2 span {
+  display: inline-block;
+  position: relative;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.custom-2 span:before, .custom-2 span:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 9999px;
+  top: 50%;
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-top-color: #27ae60;
+  margin-top: -2px;
+}
+
+.custom-2 span:before {
+  right: 100%;
+}
+
+.custom-2 span:after {
+  left: 100%;
+}
+/*////////////////////////////////////////*/
+/* CSS for list group on profile page */
+/*////////////////////////////////////////*/
+.list-group {
+  margin-bottom: 1rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 0;
+  background: #fefefe;
+  box-shadow: none;
+  overflow: hidden;
+  color: #0a0a0a;
+}
+
+.list-group > :last-child {
+  margin-bottom: 0;
+}
+
+.list-group-item {
+  padding: 1rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.list-group-item > :last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.list-group-item.active {
+  color: #fefefe;
+  background-color: #1779ba;
+  border-color: 1px solid #1779ba;
+}
+
+.list-group-item:hover, .list-group-item:focus {
+  background-color: #e6e6e6;
+}
+
+.list-group-item:hover.active, .list-group-item:focus.active {
+  background-color: #1779ba;
+}
+
+.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus, .list-group-item[disabled], .list-group-item[disabled]:hover, .list-group-item[disabled]:focus {
+  color: #8a8a8a;
+  cursor: not-allowed;
+  background-color: #fefefe;
+}
+
+.footer {
     background: #020304;
     position: fixed;
     height: 70px;
@@ -148,9 +350,3 @@ p {
     margin-bottom: 25px;
     margin-left: 10px;
   }
- 
-
-  
-  
-  
-  
