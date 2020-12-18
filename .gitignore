@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-.env
-.DS_STORE
-node_modules
-.vscode
-=======
 node_modules
 .DS_Store
 .env
 .vscode
->>>>>>> develop
