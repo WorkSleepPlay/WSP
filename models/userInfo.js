@@ -30,7 +30,14 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 3],
                 isInt: true
             }
-        }
+        },
+    }, {
+        freezeTableName: true
     });
+    userInfo.associate = function (models) {
+        userInfo.hasMany(models.userData, {
+            onDelete: "cascade"
+        });
+    };
     return userInfo;
 };
