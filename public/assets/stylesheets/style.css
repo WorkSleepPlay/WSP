@@ -1,126 +1,352 @@
-* {
-   box-sizing: border-box;
-}
+
 form.signup,
 form.login {margin-top: 50px;
- }
- .subnav-hero-section {
-  text-align: center;
-  background: #1d6a97;
-  background-size: cover;
-  position: relative;
-  overflow: visible;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 120px;
+    background-color: gray;
+
+}
+
+.subnav-hero-section {
+ text-align: center;
+ background: #1d6a97;
+ background-size: cover;
+ position: relative;
+ overflow: visible;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+ -webkit-align-items: center;
+     -ms-flex-align: center;
+         align-items: center;
+ -webkit-justify-content: center;
+     -ms-flex-pack: center;
+         justify-content: center;
+ height: 100px;
 }
 
 .subnav-hero-section .subnav-hero-headline {
-  color: #fefefe;
+ color: #fefefe;
+ font-size: xx-large;
 }
 
 .subnav-hero-subnav {
-  float: none;
-  position: absolute;
-  text-align: center;
-  margin: 0 auto;
-  bottom: 0;
-  width: 100%;
+ float: none;
+ position: absolute;
+ text-align: center;
+ margin: 0 auto;
+ bottom: 0;
+ width: 100%;
 }
 
 .subnav-hero-subnav li {
-  float: none;
-  display: inline-block;
+ float: none;
+ display: inline-block;
 }
 
 .subnav-hero-subnav li a {
-  padding: 0.9rem 1rem;
-  font-size: 0.75rem;
-  color: #fefefe;
-  text-transform: uppercase;
-  display: block;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: all 0.35s ease-in-out;
+ padding: 0.9rem 1rem;
+ font-size: 0.75rem;
+ color: #fefefe;
+ text-transform: uppercase;
+ display: block;
+ font-weight: bold;
+ letter-spacing: 1px;
+ transition: all 0.35s ease-in-out;
 }
 
 .subnav-hero-subnav li a.is-active {
-  background: rgba(254, 254, 254, 0.15);
+ background: rgba(254, 254, 254, 0.15);
 }
 
 .subnav-hero-subnav li a:hover {
-  background: rgba(254, 254, 254, 0.15);
+ background: rgba(254, 254, 254, 0.15);
 }
 
 
 .button-rounded-hover {
-  border: 0;
-  width: 100%;
-  border-radius: 5000px;
-  padding: 1rem 2rem;
-  text-transform: uppercase;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  transition: all 0.35s ease;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
+ border: 0;
+ border-radius: 5000px;
+ padding: 1rem 2rem;
+ text-transform: uppercase;
+ position: relative;
+ width: 100%;
+ overflow: hidden;
+ font-size: 1rem;
+ letter-spacing: 2px;
+ transition: all 0.35s ease;
+ -webkit-transform: translateZ(0);
+         transform: translateZ(0);
 }
 
 .button-rounded-hover:before {
-  opacity: 0;
-  content: "";
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  border-radius: inherit;
-  background-color: #fefefe;
-  transition: all 0.3s;
-  -webkit-transform: translateX(-100%);
-      -ms-transform: translateX(-100%);
-          transform: translateX(-100%);
+ opacity: 0;
+ content: "";
+ position: absolute;
+ top: 0px;
+ bottom: 0px;
+ left: 0px;
+ right: 0px;
+ border-radius: inherit;
+ background-color: #fefefe;
+ transition: all 0.3s;
+ -webkit-transform: translateX(-100%);
+     -ms-transform: translateX(-100%);
+         transform: translateX(-100%);
 }
 
 .button-rounded-hover:after {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  border: 5px solid #115b8d;
-  content: '';
-  border-radius: inherit;
+ position: absolute;
+ top: 0px;
+ bottom: 0px;
+ left: 0px;
+ right: 0px;
+ border: 5px solid #115b8d;
+ content: '';
+ border-radius: inherit;
 }
 
 .button-rounded-hover:hover,
 .button-rounded-hover:focus {
-  background-color: #115b8d;
+ background-color: #115b8d;
 }
 
 .button-rounded-hover:hover:before,
 .button-rounded-hover:focus:before {
-  -webkit-transform: translateX(0%);
-      -ms-transform: translateX(0%);
-          transform: translateX(0%);
-  opacity: 0.25;
+ -webkit-transform: translateX(0%);
+     -ms-transform: translateX(0%);
+         transform: translateX(0%);
+ opacity: 0.25;
+}
+p {
+    font-size:15px;
+    color:#8aa0ae;
+    margin-bottom: 0;
+}
+.flex {
+ display: flex;
+ flex-shrink: 2;
+ width:300px;
+ margin-top:45px;
+ margin-bottom: 20px;
+ margin-left:auto;
+ margin-right:auto;
+ padding-top: 70px;
+ padding-bottom: 70px;
 }
 
-.flex {
-  display: flex;
-  flex-shrink: 2;
-  width:300px;
-  padding-top:250px;
-  margin-left:auto;
-  margin-right:auto;
+/*////////////////////////////////////////*/
+/* CSS for TOP BLOCK on profile page */
+/*////////////////////////////////////////*/
+
+.work-feature-block {
+  padding: 10px 0;
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
 }
+
+.work-feature-block-image {
+  display: block;
+  margin: auto;
+  padding: 10px 0;
+}
+
+/*////////////////////////////////////////*/
+/* CSS for DIVIDER on profile page */
+/*////////////////////////////////////////*/
+
+.type-sidelines {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.type-sidelines span {
+  display: inline-block;
+  position: relative;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.type-sidelines span:before, .type-sidelines span:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 9999px;
+  top: 50%;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.type-sidelines span:before {
+  right: 100%;
+}
+
+.type-sidelines span:after {
+  left: 100%;
+}
+
+.double {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.double span {
+  display: inline-block;
+  position: relative;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.double span:before, .double span:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 9999px;
+  top: 50%;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  height: 0.5em;
+  margin-top: -0.25em;
+}
+
+.double span:before {
+  right: 100%;
+}
+
+.double span:after {
+  left: 100%;
+}
+
+.custom {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.custom span {
+  display: inline-block;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.custom span:before, .custom span:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  border-top-style: dotted;
+  border-top-width: 4px;
+  border-top-color: #2980b9;
+  margin-top: -2px;
+}
+
+.custom span:before {
+  right: 100%;
+}
+
+.custom span:after {
+  left: 100%;
+}
+
+.custom-2 {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.custom-2 span {
+  display: inline-block;
+  position: relative;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.custom-2 span:before, .custom-2 span:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 9999px;
+  top: 50%;
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-top-color: #27ae60;
+  margin-top: -2px;
+}
+
+.custom-2 span:before {
+  right: 100%;
+}
+
+.custom-2 span:after {
+  left: 100%;
+}
+/*////////////////////////////////////////*/
+/* CSS for list group on profile page */
+/*////////////////////////////////////////*/
+.list-group {
+  margin-bottom: 1rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 0;
+  background: #fefefe;
+  box-shadow: none;
+  overflow: hidden;
+  color: #0a0a0a;
+}
+
+.list-group > :last-child {
+  margin-bottom: 0;
+}
+
+.list-group-item {
+  padding: 1rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.list-group-item > :last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.list-group-item.active {
+  color: #fefefe;
+  background-color: #1779ba;
+  border-color: 1px solid #1779ba;
+}
+
+.list-group-item:hover, .list-group-item:focus {
+  background-color: #e6e6e6;
+}
+
+.list-group-item:hover.active, .list-group-item:focus.active {
+  background-color: #1779ba;
+}
+
+.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus, .list-group-item[disabled], .list-group-item[disabled]:hover, .list-group-item[disabled]:focus {
+  color: #8a8a8a;
+  cursor: not-allowed;
+  background-color: #fefefe;
+}
+
+.footer {
+    background: #020304;
+    position: fixed;
+    height: 70px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer .clearfix .cell  {
+    color: #8aa0ae;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+  }

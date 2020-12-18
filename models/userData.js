@@ -9,15 +9,15 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true,
         },
         play: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DATE,
             allowNull: true,
         },
         loginDate: {
             type: DataTypes.DATEONLY,
             allowNull: true,
         },
-        loginDuration: {
-            type: DataTypes.DECIMAL,
+        daysActive: {
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
     }, {
