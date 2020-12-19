@@ -23,6 +23,7 @@ module.exports = {
     "database": process.env.JAWSDB_database,
     "host": process.env.JAWSDB_host,
     "dialect": "mysql",
+    "port": 3306,
 
   }
 }
