@@ -136,7 +136,12 @@ p {
  padding-top: 70px;
  padding-bottom: 70px;
 }
-
+#logout {
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+ 
+}
 /*////////////////////////////////////////*/
 /* CSS for TOP BLOCK on profile page */
 /*////////////////////////////////////////*/
@@ -160,6 +165,7 @@ p {
   /* padding: 10px 0; */
   /* background-color: #565A87; */
 }
+
 
 /*////////////////////////////////////////*/
 /* CSS for DIVIDER on profile page */
