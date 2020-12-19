@@ -15,19 +15,35 @@ module.exports = function (sequelize, DataTypes) {
         loginDate: {
             type: DataTypes.DATEONLY,
             allowNull: true,
+            get() {
+                return moment(this.getDataValue('loginDate')).format('DD/MM/YYYY');
+            }
         },
         daysActive: {
             type: DataTypes.INTEGER,
             allowNull: true,
+            get() {
+                return moment(this.getDataValue('daysActive')).startOf(createdAt).fromNow();
+            }
         },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal("NOW()")
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal("NOW()")
+        }
     }, {
         freezeTableName: true
     });
     userData.associate = function (models) {
-        userData.belongsTo(models.userInfo, {
-            foreignKey: {
-                allowNull: false
-            }
+        userData.belongsTo(models.user, {
+            // foreignKey: {
+            //     allowNull: false
+            // }
         });
     };
     return userData;

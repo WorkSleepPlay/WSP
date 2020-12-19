@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var userInfo = sequelize.define("userInfo", {
+    var user = sequelize.define("user", {
         fullName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -31,13 +31,34 @@ module.exports = function (sequelize, DataTypes) {
                 isInt: true
             }
         },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal("NOW()")
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal("NOW()")
+        },
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        }
+        // userInfoId: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     defaultValue: 1
+        // }
     }, {
         freezeTableName: true
     });
-    userInfo.associate = function (models) {
-        userInfo.hasMany(models.userData, {
+    user.associate = function (models) {
+        user.hasMany(models.userData, {
             onDelete: "cascade"
         });
     };
-    return userInfo;
+    return user;
 };
