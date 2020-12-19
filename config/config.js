@@ -18,12 +18,14 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": process.env.DBPASSWORD,
-    "database": "wsp",
-    "host": "127.0.0.1",
-    "port": 3306,
+    "username": process.env.JAWSDB_user,
+    "password": process.env.JAWSDB_password,
+    "database": process.env.JAWSDB_database,
+    "host": process.env.JAWSDB_host,
     "dialect": "mysql",
-    "use_env_variable": "JAWSDB_URL" 
+    "port": 3306,
+
   }
 }
+
+// mysql://rgnex4npv8iewh7w:msebvtac2qylxnz7@l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ixqfzv5lhbhg8w1t
