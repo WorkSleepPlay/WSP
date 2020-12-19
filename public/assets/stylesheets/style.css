@@ -116,6 +116,10 @@ form.login {margin-top: 50px;
          transform: translateX(0%);
  opacity: 0.25;
 }
+#b4 {
+  background-color: rgb(228, 44, 44);
+}
+
 p {
     font-size:15px;
     color:#8aa0ae;
@@ -132,7 +136,12 @@ p {
  padding-top: 70px;
  padding-bottom: 70px;
 }
-
+#logout {
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+ 
+}
 /*////////////////////////////////////////*/
 /* CSS for TOP BLOCK on profile page */
 /*////////////////////////////////////////*/
@@ -156,6 +165,7 @@ p {
   /* padding: 10px 0; */
   /* background-color: #565A87; */
 }
+
 
 /*////////////////////////////////////////*/
 /* CSS for DIVIDER on profile page */
