@@ -144,9 +144,17 @@ p {
 }
 
 .work-feature-block-image {
-  display: block;
+  /* display: block; */
   margin: auto;
   padding: 10px 0;
+}
+
+.work-feature-block-profile {
+  /* display: block; */
+  margin: auto;
+  margin-left: 5px;
+  /* padding: 10px 0; */
+  /* background-color: #565A87; */
 }
 
 /*////////////////////////////////////////*/
@@ -293,6 +301,7 @@ p {
 /*////////////////////////////////////////*/
 .list-group {
   margin-bottom: 1rem;
+  margin-right: 1rem;
   border: 1px solid #e6e6e6;
   border-radius: 0;
   background: #fefefe;
@@ -350,3 +359,56 @@ p {
     margin-bottom: 25px;
     margin-left: 10px;
   }
+/* This is for the profile container */
+  .profile-container {
+    margin-left: 10px;
+  }
+
+/*////////////////////////////////////////*/
+/* CSS signup page */
+/*////////////////////////////////////////*/
+
+.floated-label-wrapper {
+  position: relative;
+}
+
+.floated-label-wrapper label {
+  background: #fefefe;
+  color: #1779ba;
+  font-size: 0.75rem;
+  font-weight: 600;
+  left: 0.75rem;
+  opacity: 0;
+  padding: 0 0.25rem;
+  position: absolute;
+  top: 2rem;
+  transition: all 0.15s ease-in;
+  z-index: -1;
+}
+
+.floated-label-wrapper label input[type=text],
+.floated-label-wrapper label input[type=email],
+.floated-label-wrapper label input[type=password] {
+  border-radius: 4px;
+  font-size: 1.75em;
+  padding: 0.5em;
+}
+
+.floated-label-wrapper label.show {
+  opacity: 1;
+  top: -0.85rem;
+  z-index: 1;
+  transition: all 0.15s ease-in;
+}
+
+/*////////////////////////////////////////*/
+/* CSS login page */
+/*////////////////////////////////////////*/
+
+
+.log-in-form {
+  border: 1px solid #cacaca;
+  padding: 1rem;
+  border-radius: 0;
+}
+
