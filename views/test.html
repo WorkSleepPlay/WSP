@@ -21,41 +21,48 @@
 </head>
 
 <body>
-    <main class="flex">
-        <!-- {{> nav }} -->
-        <div class="work-feature-block row">
-            <div class="columns medium-7">
-                <img class="work-feature-block-image" src="https://placehold.it/600x400" />
-                <!-- {{!-- WE NEED TO FIGURE OUT HOW TO GET THE PROFILE IMAGES TO BE SELECTED, OTHERWISE EVERYONE WILL HAVE THE SAME PROFILE PICTURE.....SHOOOOOOOOOT!  --}} -->
-
+    <main class="profile-container">
+        <div>
+            <h1 class="work-feature-block-header row">User Profile</h2>
+                <p> On this page, you can review your logs!</p>
+        </div>
+        <div class="work-feature-block row flex-container align-center">
+            <div columns small-6>
+                <div>
+                    <img class="work-feature-block-image" src="https://placehold.it/200x200" />
+                    <!-- WE NEED TO FIGURE OUT HOW TO GET THE PROFILE IMAGES TO BE SELECTED, OTHERWISE EVERYONE WILL HAVE THE SAME PROFILE PICTURE.....SHOOOOOOOOOT! -->
+                </div>
             </div>
-            <div class="columns medium-5">
-                <h1 class="work-feature-block-header">User Profile</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet.
-                        Phasellus pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Etiam quis est quam. Aenean blandit a urna laoreet tincidunt.</p>
-                    <h2>Project Details</h2>
+            <div columns small-6 class="work-feature-block-profile">
+                <div row>
+                    <h2>Profile Info</h2>
                     <ul>
-                        <li>{{ firstName }} {{ lastName }}</li>
+                        <li>{{ fullName }}</li>
                         <li>{{ email }}</li>
+                        <li>{{ age }}</li>
                     </ul>
-            </div>
-            <div>
-                <h2>Activity</h2>
-                <li>{{ daysActive }}</li>
-                {{!-- WE NEED THIS TO PULL FROM THE API I THINK? NOT SURE HOW TO MAKE THIS WORK --}}
+                </div>
+                <div row>
+                    <h2>Activity</h2>
+                    <li>{{ daysActive }}</li>
+                    <!-- WE NEED THIS TO PULL FROM THE API I THINK? NOT SURE HOW TO MAKE THIS WORK -->
+                </div>
             </div>
         </div>
-        <!-- <h2 class="type-sidelines custom-2"><span></span></h2> -->
-        <div>
+
+
+        <h2 class="type-sidelines"><span></span></h2>
+        <div row>
             <h2>Completed Activities</h2>
             <ul class="list-group">
-                <li class="list-group-item active">List Group Item 1 (Active)</li>
-                <li class="list-group-item">List Group Item 2</li>
-                <li class="list-group-item">List Group Item 3</li>
-                <li class="list-group-item disabled">List Group Item 4 (Disabled)</li>
+                <li class="list-group-item">This is a result pulled from the DB <button class="button button-rounded-hover" id="delete-button" type="delete" name="delete"><i
+                    class="fi-trash">DELETE</i></button>
+                </li>
+                <li class="list-group-item">This is a result pulled from the DB <button class="button button-rounded-hover" id="delete-button" type="delete" name="delete"><i
+                    class="fi-trash">DELETE</i></button> 
+                </li>
+
             </ul>
-        </div>
 
         </div>
 

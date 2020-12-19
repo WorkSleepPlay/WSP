@@ -1,21 +1,21 @@
 {{> nav }}
 <div class="form-container">
-  <form 
-    class="form-signin text-center" 
-    action="/login" 
-    method="post">
-    
+  <form class="form-signin text-center" action="/login" method="post">
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" id="inputUsername" name="username" class="form-control p-4" placeholder="Username" required="" autofocus="">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" class="form-control p-4" placeholder="Password" required="">
-    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">WSP © 2020</p>
-  </form>
 
-{{!-- will need to confirm css classes on these buttons once we're there --}}
-{{!-- reminder for frontend team --}}
+    <form class="log-in-form">
+      <h4 class="text-center">Log in with you email account</h4>
+      <label>{{email-input}}
+        <input type="email" placeholder="somebody@example.com">
+      </label>
+      <label>{{password-input}}
+        <input type="password" placeholder="Password">
+      </label>
+      <p><input type="submit" class="button expanded" value="Log in"></input></p>
+      <p class="mt-5 mb-3 text-muted">WSP © 2020</p>
+    </form>
+
+    {{!-- will need to confirm css classes on these buttons once we're there --}}
+    {{!-- reminder for frontend team --}}
 
 </div>
