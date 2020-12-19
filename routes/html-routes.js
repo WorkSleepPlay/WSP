@@ -5,25 +5,33 @@ var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
+  //SIGNUP ROUTES
+  app.get("/signup", function (req, res) {
+    if (req.user) {
+      res.redirect("/home");
+    } else {
+      res.render("signup");
+    }
+  });
+
+  //LOGIN ROUTES
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.userInfo) {
-      res.redirect("/home");
+    if (req.user) {
+      res.render("login");
+    } else {
+      res.redirect("/signup");
     }
-    res.sendFile(path.join(__dirname, "../views/login.handlebars"));
   });
 
-  app.get("/login", function (req, res) {
+  //HOMEPAGE ROUTES
+  app.get("/home", isAuthenticated, function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.userInfo) {
-      res.redirect("/home");
-    }
-    res.sendFile(path.join(__dirname, "../views/login.handlebars"));
+    res.render("home");
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  //PROFILE ROUTES
   app.get("/profile", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/signup.handlebars"));
+    res.render("profile");
   });
-};
+}
