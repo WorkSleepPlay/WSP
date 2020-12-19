@@ -33,7 +33,7 @@ module.exports = function (app) {
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
+  app.get("/api/user_data/:email", function (req, res) {
     if (!req.userInfo) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -42,7 +42,9 @@ module.exports = function (app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.userInfo.email,
-        id: req.userInfo.id
+        id: req.userInfo.id,
+        age: req.userInfo.age,
+        fullName: req.userInfo.fullName,
       });
     }
   });
