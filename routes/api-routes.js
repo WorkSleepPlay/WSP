@@ -50,5 +50,14 @@ module.exports = function (app) {
         age: req.body.age 
       });
     }
+
   });
+  app.post("api/update", function (req,res) {
+    db.userData.create({
+      work: req.body.work,
+      sleep:req.body.sleep,
+      play: req.body.play,
+      daysActive: req.body.daysActive
+    })
+  })
 };
