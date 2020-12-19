@@ -1,10 +1,4 @@
-
-form.signup,
-form.login {margin-top: 50px;
-    background-color: gray;
-
-}
-
+/* css for nav */
 .subnav-hero-section {
  text-align: center;
  background: #1d6a97;
@@ -26,6 +20,7 @@ form.login {margin-top: 50px;
 .subnav-hero-section .subnav-hero-headline {
  color: #fefefe;
  font-size: xx-large;
+ font-family: 'Permanent Marker', cursive;
 }
 
 .subnav-hero-subnav {
@@ -60,7 +55,7 @@ form.login {margin-top: 50px;
 .subnav-hero-subnav li a:hover {
  background: rgba(254, 254, 254, 0.15);
 }
-
+/* css for buttons */
 
 .button-rounded-hover {
  border: 0;
@@ -122,8 +117,10 @@ form.login {margin-top: 50px;
 
 p {
     font-size:15px;
-    color:#8aa0ae;
+    color:#979b9b;
     margin-bottom: 0;
+    font-size: large;
+    font-family: 'Permanent Marker', cursive;
 }
 .flex {
  display: flex;
