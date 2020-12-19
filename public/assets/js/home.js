@@ -21,4 +21,7 @@ $(document).ready(function () {
   $("#b2").on("click", function () {
     countUpTimer.start();
   });
+  $("#b2").on("click", function () {
+    countUpTimer.stop();
+  });
 });
