@@ -1,4 +1,10 @@
 /* css for nav */
+body {
+  background-image:url("./assets/wsp.jpeg");
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+}
 .subnav-hero-section {
  text-align: center;
  background: #1d6a97;
@@ -117,7 +123,7 @@
 
 p {
     font-size:15px;
-    color:#979b9b;
+    color:#a4cde0;
     margin-bottom: 0;
     font-size: large;
     font-family: 'Permanent Marker', cursive;
@@ -126,11 +132,11 @@ p {
  display: flex;
  flex-shrink: 2;
  width:300px;
- margin-top:45px;
+ margin-top:auto;
  margin-bottom: 20px;
  margin-left:auto;
  margin-right:auto;
- padding-top: 70px;
+ padding-top: 10px;
  padding-bottom: 70px;
 }
 #logout {
@@ -361,7 +367,7 @@ p {
   }
 
   .footer .clearfix .cell  {
-    color: #8aa0ae;
+    color: #a4cde0;
     margin-top: 25px;
     margin-bottom: 25px;
     margin-left: 10px;
