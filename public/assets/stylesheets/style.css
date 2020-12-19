@@ -1,10 +1,10 @@
-
-form.signup,
-form.login {margin-top: 50px;
-    background-color: gray;
-
+/* css for nav */
+body {
+  background-image:url("./assets/wsp.jpeg");
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
 }
-
 .subnav-hero-section {
  text-align: center;
  background: #1d6a97;
@@ -26,6 +26,7 @@ form.login {margin-top: 50px;
 .subnav-hero-section .subnav-hero-headline {
  color: #fefefe;
  font-size: xx-large;
+ font-family: 'Permanent Marker', cursive;
 }
 
 .subnav-hero-subnav {
@@ -60,7 +61,7 @@ form.login {margin-top: 50px;
 .subnav-hero-subnav li a:hover {
  background: rgba(254, 254, 254, 0.15);
 }
-
+/* css for buttons */
 
 .button-rounded-hover {
  border: 0;
@@ -116,23 +117,34 @@ form.login {margin-top: 50px;
          transform: translateX(0%);
  opacity: 0.25;
 }
+#b4 {
+  background-color: rgb(228, 44, 44);
+}
+
 p {
     font-size:15px;
-    color:#8aa0ae;
+    color:#a4cde0;
     margin-bottom: 0;
+    font-size: large;
+    font-family: 'Permanent Marker', cursive;
 }
 .flex {
  display: flex;
  flex-shrink: 2;
  width:300px;
- margin-top:45px;
+ margin-top:auto;
  margin-bottom: 20px;
  margin-left:auto;
  margin-right:auto;
- padding-top: 70px;
+ padding-top: 10px;
  padding-bottom: 70px;
 }
-
+#logout {
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+ 
+}
 /*////////////////////////////////////////*/
 /* CSS for TOP BLOCK on profile page */
 /*////////////////////////////////////////*/
@@ -156,6 +168,7 @@ p {
   /* padding: 10px 0; */
   /* background-color: #565A87; */
 }
+
 
 /*////////////////////////////////////////*/
 /* CSS for DIVIDER on profile page */
@@ -354,7 +367,7 @@ p {
   }
 
   .footer .clearfix .cell  {
-    color: #8aa0ae;
+    color: #a4cde0;
     margin-top: 25px;
     margin-bottom: 25px;
     margin-left: 10px;
