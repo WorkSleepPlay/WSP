@@ -24,14 +24,27 @@ module.exports = function (app) {
     }
   });
 
+  //LOGOUT ROUTES
+  app.get("/logout", function (req, res) {
+    // If the user already has an account send them to the members page
+    res.render("login");
+  });
+
   //HOMEPAGE ROUTES
-  app.get("/home", isAuthenticated, function (req, res) {
+  // app.get("/home", isAuthenticated, function (req, res) {
+  //   // If the user already has an account send them to the members page
+  //   res.render("home");
+  // });
+  app.get("/home", function (req, res) {
     // If the user already has an account send them to the members page
     res.render("home");
   });
 
   //PROFILE ROUTES
-  app.get("/profile", isAuthenticated, function (req, res) {
+  // app.get("/profile", isAuthenticated, function (req, res) {
+  //   res.render("profile");
+  // });
+  app.get("/profile", function (req, res) {
     res.render("profile");
   });
 }
