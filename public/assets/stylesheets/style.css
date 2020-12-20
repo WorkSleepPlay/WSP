@@ -1,10 +1,11 @@
 /* css for nav */
 body {
-  background-image:url("../../assets/wsp.jpeg");
+  background-image:url("../../assets/wsp2.jpeg");
   background-repeat: no-repeat;
   background-attachment:fixed;
   background-size: cover;
 }
+
 .subnav-hero-section {
  text-align: center;
  background: #1d6a97;
@@ -123,7 +124,7 @@ body {
 
 p {
     font-size:15px;
-    color:#a4cde0;
+    color:#03080a;
     margin-bottom: 0;
     font-size: large;
     font-family: 'Permanent Marker', cursive;
