@@ -1,35 +1,36 @@
 {{> nav }}
-<form class="callout text-center" action="/signup" method="post">
+<form class="callout text-center" id="form.signup" action="/api/signup" method="post">
     <h1>Sign Up</h1>
     <div class="floated-label-wrapper">
-        <label for="inputUsername">{{email-input}}</label>
-        <input type="text" id="inputEmail" name="email-input" class="form-control p-4" placeholder="email-input"
-            required="" autofocus="">
+        <label for="email">{{email}}</label>
+        <input type="text" id="email" name="email" class="form-control p-4" placeholder="Email" required=""
+            autofocus="">
     </div>
 
     <div class="floated-label-wrapper">
-        <label for="inputPassword">
-            {{password-input}}
+        <label for="userPassword">
+            {{userPassword}}
         </label>
-        <input type="password" id="pass" name="password-input" placeholder="Password" required="">
+        <input type="password" id="userPassword" name="userPassword" placeholder="Password" required="">
     </div>
 
     <div class="floated-label-wrapper">
-        <label for="name-input">
-            {{name-input}}
+        <label for="fullName">
+            {{fullName}}
         </label>
-        <input type="name" id="name-input" name="name-input" 
-        placeholder="First and Last Name" required="">
+        <input type="text" id="fullName" name="fullName" placeholder="First and Last Name" required="">
     </div>
 
     <div class="floated-label-wrapper">
-        <label for="age-input">
-            {{age-input}}
+        <label for="age">
+            {{age}}
         </label>
-        <input type="age-input" id="age-input" name="age-input" 
-        placeholder="How many years old are you" required="">
+        <input type="text" id="age" name="age" placeholder="How many years old are you" required="">
     </div>
 
     <input class="button expanded" type="submit" value="Sign up">
+    <p>Or log in <a href="/login">here</a></p>
     <p>WSP © 2020</p>
 </form>
+
+<script scr="./assets/js/signup.js"></script>

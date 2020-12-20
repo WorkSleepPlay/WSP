@@ -1,6 +1,6 @@
 /* css for nav */
 body {
-  background-image: url("./assets/wsp.jpeg");
+  background-image: url("../../assets/wsp.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -467,7 +467,8 @@ p {
 /* The SVG path that displays the timer's progress */
 .base-timer__path-elapsed {
   stroke-width: 7px;
-  stroke: grey;
+  stroke: red;
+  fill: white;
 }
 
 .base-timer__label {

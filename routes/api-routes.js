@@ -10,14 +10,16 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
+    console.log(res)
     db.user.create({
         email: req.body.email,
         userPassword: req.body.userPassword,
         fullName: req.body.fullName,
         age: req.body.age
       })
-      .then(function () {
-        res.redirect(307, "/login");
+      .then(function (dbUser) {
+        res.redirect(307, "api/login");
+        // do we want them to go to the login after to authenticate? Or go somewhere else
       })
       .catch(function (err) {
         res.status(401).json(err);
@@ -26,7 +28,7 @@ module.exports = function (app) {
 
   //LOGIN ROUTES
 
-  app.get("/api/user", passport.authenticate("local"), function (req, res) {
+  app.get("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
@@ -38,9 +40,16 @@ module.exports = function (app) {
 
   app.post("api/update", function (req, res) {
     db.userData.create({
-      work: req.body.work,
-      sleep: req.body.sleep,
-      play: req.body.play,
-    })
+        work: req.body.work,
+        sleep: req.body.sleep,
+        play: req.body.play,
+      })
+      .then(function (dbUser) {
+        res.redirect(307, "/profile");
+        // do we want them to go to the login after to authenticate? Or go somewhere else
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
   })
 };
