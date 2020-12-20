@@ -8,7 +8,7 @@ module.exports = function (app) {
   //SIGNUP ROUTES
   app.get("/signup", function (req, res) {
     if (req.user) {
-      res.redirect("/home");
+      res.redirect("/login");
     } else {
       res.render("signup");
     }
