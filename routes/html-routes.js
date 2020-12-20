@@ -8,12 +8,18 @@ module.exports = function (app) {
   //SIGNUP ROUTES
   app.get("/signup", function (req, res) {
     if (req.user) {
-      res.redirect("/login");
+      res.redirect("/api/login");
     } else {
       res.render("signup");
     }
   });
-
+  app.get("/login", function (req, res) {
+    if (req.user) {
+      res.redirect("/api/login");
+    } else {
+      res.render("signup");
+    }
+  });
   //LOGIN ROUTES
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
@@ -45,7 +51,7 @@ module.exports = function (app) {
   app.get("/profile", function (req, res) {
     res.render("profile");
   });
-}
+};
 
 // app.get("/profile", isAuthenticated, function (req, res) {
 //   res.render("profile");
