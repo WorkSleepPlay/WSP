@@ -24,6 +24,12 @@ module.exports = function (app) {
     }
   });
 
+  //LOGOUT ROUTES
+  app.get("/logout", function (req, res) {
+    // If the user already has an account send them to the members page
+    res.render("login");
+  });
+
   //HOMEPAGE ROUTES
   app.get("/home", function (req, res) {
     // If the user already has an account send them to the members page
