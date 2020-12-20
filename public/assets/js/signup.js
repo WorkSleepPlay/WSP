@@ -38,7 +38,7 @@ $(document).ready(function() {
       age: age
     })
       .then(function(data) {
-        window.location.replace("/members");
+        window.location.replace("/profile");
         // If there's an error, handle it by throwing up a bootstrap alert
         // we dont have a members page...need to change to login? where are we redirecting them to 
       })

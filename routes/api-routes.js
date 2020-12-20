@@ -18,7 +18,7 @@ module.exports = function (app) {
         age: req.body.age
       })
       .then(function () {
-        res.redirect(307, "/login");
+        res.redirect(307, "api/login");
         // do we want them to go to the login after to authenticate? Or go somewhere else
       })
       .catch(function (err) {
@@ -28,7 +28,7 @@ module.exports = function (app) {
 
   //LOGIN ROUTES
 
-  app.get("/api/user", passport.authenticate("local"), function (req, res) {
+  app.get("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
@@ -47,4 +47,3 @@ module.exports = function (app) {
   })
 };
 
-// should line 55 be a GET? 
