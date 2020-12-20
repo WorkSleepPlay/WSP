@@ -57,8 +57,9 @@ module.exports = function (app) {
       work: req.body.work,
       sleep: req.body.sleep,
       play: req.body.play,
-      daysActive: req.body.daysActive,
-      loginDate: req.body.loginDate
+    
     })
   })
 };
+
+// should line 55 be a GET? 
