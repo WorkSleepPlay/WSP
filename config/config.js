@@ -28,4 +28,3 @@ module.exports = {
   }
 }
 
-// mysql://rgnex4npv8iewh7w:msebvtac2qylxnz7@l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ixqfzv5lhbhg8w1t
