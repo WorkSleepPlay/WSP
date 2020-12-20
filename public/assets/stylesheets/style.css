@@ -1,150 +1,157 @@
 /* css for nav */
 body {
-  background-image:url("../../assets/wsp.jpeg");
+
+  background-image:url("../../assets/wsp2.jpeg");
   background-repeat: no-repeat;
-  background-attachment:fixed;
+  background-attachment: fixed;
   background-size: cover;
 }
+
 .subnav-hero-section {
- text-align: center;
- background: #1d6a97;
- background-size: cover;
- position: relative;
- overflow: visible;
- display: -webkit-flex;
- display: -ms-flexbox;
- display: flex;
- -webkit-align-items: center;
-     -ms-flex-align: center;
-         align-items: center;
- -webkit-justify-content: center;
-     -ms-flex-pack: center;
-         justify-content: center;
- height: 100px;
+  text-align: center;
+  background: #1d6a97;
+  background-size: cover;
+  position: relative;
+  overflow: visible;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100px;
 }
 
 .subnav-hero-section .subnav-hero-headline {
- color: #fefefe;
- font-size: xx-large;
- font-family: 'Permanent Marker', cursive;
+  color: #fefefe;
+  font-size: xx-large;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .subnav-hero-subnav {
- float: none;
- position: absolute;
- text-align: center;
- margin: 0 auto;
- bottom: 0;
- width: 100%;
+  float: none;
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+  bottom: 0;
+  width: 100%;
 }
 
 .subnav-hero-subnav li {
- float: none;
- display: inline-block;
+  float: none;
+  display: inline-block;
 }
 
 .subnav-hero-subnav li a {
- padding: 0.9rem 1rem;
- font-size: 0.75rem;
- color: #fefefe;
- text-transform: uppercase;
- display: block;
- font-weight: bold;
- letter-spacing: 1px;
- transition: all 0.35s ease-in-out;
+  padding: 0.9rem 1rem;
+  font-size: 0.75rem;
+  color: #fefefe;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.35s ease-in-out;
 }
 
 .subnav-hero-subnav li a.is-active {
- background: rgba(254, 254, 254, 0.15);
+  background: rgba(254, 254, 254, 0.15);
 }
 
 .subnav-hero-subnav li a:hover {
- background: rgba(254, 254, 254, 0.15);
+  background: rgba(254, 254, 254, 0.15);
 }
+
 /* css for buttons */
 
 .button-rounded-hover {
- border: 0;
- border-radius: 5000px;
- padding: 1rem 2rem;
- text-transform: uppercase;
- position: relative;
- width: 100%;
- overflow: hidden;
- font-size: 1rem;
- letter-spacing: 2px;
- transition: all 0.35s ease;
- -webkit-transform: translateZ(0);
-         transform: translateZ(0);
+  border: 0;
+  border-radius: 5000px;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  transition: all 0.35s ease;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .button-rounded-hover:before {
- opacity: 0;
- content: "";
- position: absolute;
- top: 0px;
- bottom: 0px;
- left: 0px;
- right: 0px;
- border-radius: inherit;
- background-color: #fefefe;
- transition: all 0.3s;
- -webkit-transform: translateX(-100%);
-     -ms-transform: translateX(-100%);
-         transform: translateX(-100%);
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: inherit;
+  background-color: #fefefe;
+  transition: all 0.3s;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 .button-rounded-hover:after {
- position: absolute;
- top: 0px;
- bottom: 0px;
- left: 0px;
- right: 0px;
- border: 5px solid #115b8d;
- content: '';
- border-radius: inherit;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border: 5px solid #115b8d;
+  content: '';
+  border-radius: inherit;
 }
 
 .button-rounded-hover:hover,
 .button-rounded-hover:focus {
- background-color: #115b8d;
+  background-color: #115b8d;
 }
 
 .button-rounded-hover:hover:before,
 .button-rounded-hover:focus:before {
- -webkit-transform: translateX(0%);
-     -ms-transform: translateX(0%);
-         transform: translateX(0%);
- opacity: 0.25;
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+  opacity: 0.25;
 }
+
 #b4 {
   background-color: rgb(228, 44, 44);
 }
 
 p {
     font-size:15px;
-    color:#a4cde0;
+    color:#03080a;
     margin-bottom: 0;
     font-size: large;
     font-family: 'Permanent Marker', cursive;
 }
+
 .flex {
- display: flex;
- flex-shrink: 2;
- width:300px;
- margin-top:auto;
- margin-bottom: 20px;
- margin-left:auto;
- margin-right:auto;
- padding-top: 10px;
- padding-bottom: 70px;
+  display: flex;
+  flex-shrink: 2;
+  width: 300px;
+  margin-top: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 70px;
 }
+
 #logout {
   float: right;
   margin-top: 15px;
   margin-right: 20px;
- 
+
 }
+
 /*////////////////////////////////////////*/
 /* CSS for TOP BLOCK on profile page */
 /*////////////////////////////////////////*/
@@ -188,7 +195,8 @@ p {
   padding-right: 0.5em;
 }
 
-.type-sidelines span:before, .type-sidelines span:after {
+.type-sidelines span:before,
+.type-sidelines span:after {
   content: '';
   position: absolute;
   height: 100%;
@@ -220,7 +228,8 @@ p {
   padding-right: 0.5em;
 }
 
-.double span:before, .double span:after {
+.double span:before,
+.double span:after {
   content: '';
   position: absolute;
   height: 100%;
@@ -256,7 +265,8 @@ p {
   padding-right: 20px;
 }
 
-.custom span:before, .custom span:after {
+.custom span:before,
+.custom span:after {
   content: '';
   position: absolute;
   height: 100%;
@@ -290,7 +300,8 @@ p {
   padding-right: 0.5em;
 }
 
-.custom-2 span:before, .custom-2 span:after {
+.custom-2 span:before,
+.custom-2 span:after {
   content: '';
   position: absolute;
   height: 100%;
@@ -309,6 +320,7 @@ p {
 .custom-2 span:after {
   left: 100%;
 }
+
 /*////////////////////////////////////////*/
 /* CSS for list group on profile page */
 /*////////////////////////////////////////*/
@@ -323,7 +335,7 @@ p {
   color: #0a0a0a;
 }
 
-.list-group > :last-child {
+.list-group> :last-child {
   margin-bottom: 0;
 }
 
@@ -332,7 +344,7 @@ p {
   border-bottom: 1px solid #e6e6e6;
 }
 
-.list-group-item > :last-child {
+.list-group-item> :last-child {
   margin-bottom: 0;
   border-bottom: none;
 }
@@ -343,39 +355,47 @@ p {
   border-color: 1px solid #1779ba;
 }
 
-.list-group-item:hover, .list-group-item:focus {
+.list-group-item:hover,
+.list-group-item:focus {
   background-color: #e6e6e6;
 }
 
-.list-group-item:hover.active, .list-group-item:focus.active {
+.list-group-item:hover.active,
+.list-group-item:focus.active {
   background-color: #1779ba;
 }
 
-.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus, .list-group-item[disabled], .list-group-item[disabled]:hover, .list-group-item[disabled]:focus {
+.list-group-item.disabled,
+.list-group-item.disabled:hover,
+.list-group-item.disabled:focus,
+.list-group-item[disabled],
+.list-group-item[disabled]:hover,
+.list-group-item[disabled]:focus {
   color: #8a8a8a;
   cursor: not-allowed;
   background-color: #fefefe;
 }
 
 .footer {
-    background: #020304;
-    position: fixed;
-    height: 70px;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
+  background: #020304;
+  position: fixed;
+  height: 70px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
 
-  .footer .clearfix .cell  {
-    color: #a4cde0;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    margin-left: 10px;
-  }
+.footer .clearfix .cell {
+  color: #a4cde0;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+
 /* This is for the profile container */
-  .profile-container {
-    margin-left: 10px;
-  }
+.profile-container {
+  margin-left: 10px;
+}
 
 /*////////////////////////////////////////*/
 /* CSS signup page */
@@ -425,3 +445,48 @@ p {
   border-radius: 0;
 }
 
+
+
+
+/*////////////////////////////////////////*/
+/* Selma */
+/*////////////////////////////////////////*/
+
+/* Sets the containers height and width */
+.base-timer {
+  position: relative;
+  height: 300px;
+  width: 300px;
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+/* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: red;
+  fill: white;
+}
+
+.base-timer__label {
+  position: absolute;
+
+  /* Size should match the parent container */
+  width: 300px;
+  height: 300px;
+
+  /* Keep the label aligned to the top */
+  top: 0;
+
+  /* Create a flexible box that centers content vertically and horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Sort of an arbitrary number; adjust to your liking */
+  font-size: 48px;
+}
