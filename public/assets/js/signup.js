@@ -17,9 +17,9 @@ $(document).ready(function () {
     };
     console.log(userData)
 
-    // if (!userData.email || !userData.password) {
-    //   return;
-    // }
+    if (!userData.email || !userData.password) {
+    return;
+    }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.password, userData.fullName, userData.age);
     emailInput.val("");
