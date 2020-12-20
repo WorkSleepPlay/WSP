@@ -1,6 +1,7 @@
 /* css for nav */
 body {
-  background-image: url("../../assets/wsp.jpeg");
+
+  background-image:url("../../assets/wsp2.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -125,11 +126,11 @@ body {
 }
 
 p {
-  font-size: 15px;
-  color: #a4cde0;
-  margin-bottom: 0;
-  font-size: large;
-  font-family: 'Permanent Marker', cursive;
+    font-size:15px;
+    color:#03080a;
+    margin-bottom: 0;
+    font-size: large;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .flex {
