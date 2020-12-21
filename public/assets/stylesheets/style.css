@@ -155,7 +155,12 @@ p {
 /*////////////////////////////////////////*/
 /* CSS for TOP BLOCK on profile page */
 /*////////////////////////////////////////*/
-
+.profile-container{
+  margin-top: 10px;
+  margin-bottom: 10%;
+  margin-left:20%;
+  margin-right: 20px;
+}
 .work-feature-block {
   padding: 10px 0;
   border-top: 1px solid #cacaca;
@@ -166,6 +171,7 @@ p {
   /* display: block; */
   margin: auto;
   padding: 10px 0;
+  margin-left: 20px;
 }
 
 .work-feature-block-profile {
@@ -175,7 +181,12 @@ p {
   /* padding: 10px 0; */
   /* background-color: #565A87; */
 }
-
+h2 {
+  margin-left: 20px;
+}
+h3 {
+  margin-left: 20px;
+}
 
 /*////////////////////////////////////////*/
 /* CSS for DIVIDER on profile page */
@@ -400,6 +411,11 @@ p {
 /*////////////////////////////////////////*/
 /* CSS signup page */
 /*////////////////////////////////////////*/
+ .callout {
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
 .floated-label-wrapper {
   position: relative;
@@ -437,7 +453,11 @@ p {
 /*////////////////////////////////////////*/
 /* CSS login page */
 /*////////////////////////////////////////*/
-
+#log-in-form {
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
 .log-in-form {
   border: 1px solid #cacaca;
