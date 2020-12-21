@@ -1,10 +1,8 @@
 $(document).ready(function () {
   // Getting references to our form and inputs
-  var loginForm = $("form.login");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
-  var ageInput = $("input#age-input");
-  var nameInput = $("input#name-input");
+  var loginForm = $("form-login");
+  var emailInput = $("#email");
+  var passwordInput = $("#userPassword");
   var fullName;
   var emailEntry;
   var age;
@@ -31,9 +29,9 @@ $(document).ready(function () {
   // loginUser does a post to our "api/login" route and if successful, redirects us the the profile page
   function loginUser(email, password) {
     $.post("/api/login", {
-      email: email,
-      password: password,
-    })
+        email: email,
+        password: password,
+      })
       .then(function () {
         $.get("/api/user_data/" + emailInput, function (data) {
           console.log(data);
