@@ -1,18 +1,39 @@
 {{> nav }}
+<br>
+<br>
+<br>
+<br>
 <div class="form-container">
+<<<<<<< Updated upstream
   <form class="form-signin text-center" id="log-in-form">
       <h4 class="text-center">Log in with you email account</h4>
       <label>{{email-input}}
         <input type="email" placeholder="somebody@example.com" id="email-input">
+=======
+  <form class="form-signin text-center callout text-center" id="log-in-form">
+    <h1>Log in</h1>
+    <div class="floated-label-wrapperlarge-offset-2">
+      <label for="email">{{email-input}}</label>
+      <input type="email" placeholder="Email" id="email-input">
+>>>>>>> Stashed changes
       </label>
-      <label>{{password-input}}
-        <input type="password" placeholder="Password" id="password-input">
+    </div>
+    <div class="floated-label-wrapper">
+      <label for="password">{{password-input}}</label>
+      <input type="password" placeholder="Password" id="password-input">
       </label>
-      <button type="submit" class="button expanded" value="Log in"></button>
-      <p class="mt-5 mb-3 text-muted">WSP © 2020</p>
-    </form>
+    </div>
 
 
+    <input type="submit" class="button expanded" value="Log In"></button>
+    <p>Or Sign Up <a href="/signup">here</a></p>
+    <p>WSP © 2020</p>
+  </form>
 </div>
 
+<<<<<<< Updated upstream
 <script src="./assets/js/login.js"></script>
+=======
+
+<script src="./assets/js/login.js"></script>
+>>>>>>> Stashed changes
