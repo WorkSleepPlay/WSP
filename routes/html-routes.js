@@ -2,31 +2,34 @@
 var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
+var passport = require("../config/passport");
 // var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
   //SIGNUP ROUTES
   app.get("/signup", function (req, res) {
     if (req.user) {
-      res.redirect("/api/login");
+      res.redirect("/");
     } else {
       res.render("signup");
     }
   });
-  app.get("/login", function (req, res) {
-    if (req.user) {
-      res.redirect("/api/login");
-    } else {
-      res.render("signup");
-    }
-  });
+
   //LOGIN ROUTES
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render("login");
+      res.render("home");
     } else {
-      res.redirect("/signup");
+      res.render("login");
+    }
+  });
+
+  app.get("/login", function (req, res) {
+    if (req.user) {
+      res.redirect("/home");
+    } else {
+      res.render("login");
     }
   });
 

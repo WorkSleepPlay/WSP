@@ -23,24 +23,14 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: true,
             get() {
-                return moment(this.getDataValue('daysActive')).startOf(createdAt).fromNow();
+                return moment(this.getDataValue('daysActive')).startOf(createdDate).fromNow();
             }
-        },
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal("NOW()")
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal("NOW()")
         }
     }, {
         freezeTableName: true
     });
     userData.associate = function (models) {
-        userData.belongsTo(models.user, {
+        userData.belongsTo(models.userInfo, {
             // foreignKey: {
             //     allowNull: false
             // }

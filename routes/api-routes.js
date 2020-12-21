@@ -17,13 +17,12 @@ module.exports = function (app) {
         fullName: req.body.fullName,
         age: req.body.age,
       })
-      .then(function (dbUser) {
-        res.redirect(307, "/api/login");
-        res.json(dbUser);
+      .then(function () {
+        res.redirect().end();
         // do we want them to go to the login after to authenticate? Or go somewhere else
       })
       .catch(function (err) {
-        res.status(401).json(err);
+        res.status(400).json(err);
       });
   });
 
@@ -31,6 +30,7 @@ module.exports = function (app) {
 
   app.get("/api/login", function (req, res) {
     res.json(req.user);
+    res.
   });
 
   //LOGOUT ROUTES
