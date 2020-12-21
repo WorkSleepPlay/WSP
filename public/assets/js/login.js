@@ -43,8 +43,20 @@ $(document).ready(function () {
       url: "/api/signup",
       type: "POST",
     });
-    window.location.replace("/home");
+    // window.location.replace("/profile");
+    profileInfo();
   };
+
+  function profileInfo() {
+    $.get(`/api/user/${id}`, function (req, res) {
+      if (req) {
+        fullName = req.body.fullName;
+        email = req.body.email;
+        age = req.body.age;
+        id = req.body.id;
+      }
+    })
+  }
   // $.post("/api/login", {
   //   email: email,
   //   password: password,

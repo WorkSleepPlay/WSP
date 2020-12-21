@@ -35,26 +35,18 @@ module.exports = function (app) {
   });
 
   //USER TABLE API ROUTES
-  app.get("/api/user", function (req, res) {
-    if (!req.user) {
-      // res.json({});
-      db.user
-        .findAll({
-          include: [db.userData],
-        })
-        .then(function (dbUser) {
-          res.json(dbUser);
-        });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id,
-        userPassword: req.user.userPassword,
-        fullName: req.user.fullName,
-        age: req.user.age,
-      });
-    }
-  });
+  // app.get("/api/user", function (req, res) {
+  //   console.log("+++++++++++++++++++++++++++++++++++++++++++++++++")
+  //   console.log(req.user);
+  //   console.log("+++++++++++++++++++++++++++++++++++++++++++++++++")
+  //   res.render("profile", {
+  //     email: req.user.email,
+  //     id: req.user.id,
+  //     userPassword: req.user.userPassword,
+  //     fullName: req.user.fullName,
+  //     age: req.user.age,
+  //   });
+  // });
 
   app.get("/api/user/:id", function (req, res) {
     db.user
@@ -65,6 +57,7 @@ module.exports = function (app) {
         include: [db.userData],
       })
       .then(function (dbUser) {
+        res.render("profile", dbUser);
         res.json(dbUser);
       });
   });
