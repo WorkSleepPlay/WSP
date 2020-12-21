@@ -48,6 +48,7 @@ $(document).ready(function () {
         //     id = data.id;
         //   }
         // })
+
         window.location.replace("/profile");
         // If there's an error, log the error
       })
