@@ -9,18 +9,11 @@ $(document).ready(function () {
   function profileInfo() {
     $.get("/api/user", function (req,res) {
       if (req) {
-        fullName = req.body.fullName;
-        email = req.body.email;
-        age = req.body.age;
-        id = req.body.id;
+        fullName = req.user.fullName;
+        email = res.user.email;
+        age = res.user.age;
+        id = req.user.id;
       }
     })
   }
-  console.log(age);
-  console.log(email);
-  console.log(fullName);
-  console.log(id);
 });
-
-
-//   delete button ID is "delete-button"
