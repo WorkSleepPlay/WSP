@@ -2,7 +2,6 @@
   "name": "worksleepplay",
   "version": "1.0.0",
   "description": "Work Sleep Play is a web app that allows the user to login in and select whether to work (productivity tracker), sleep (relaxing music/sounds and images to fall asleep to), or play (simple interactive games). The user will also be able to view their profile and see insights on how they’ve spent their time. ",
-
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

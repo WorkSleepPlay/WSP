@@ -17,8 +17,26 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
+<<<<<<< HEAD
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+=======
+// Requiring our routes
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+>>>>>>> develop
 
 db.sequelize.sync({
   // force: true

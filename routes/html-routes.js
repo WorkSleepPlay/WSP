@@ -8,11 +8,26 @@ var passport = require("../config/passport");
 module.exports = function (app) {
   //SIGNUP ROUTES
   app.get("/signup", function (req, res) {
+<<<<<<< HEAD
     if (req.user) {
       res.redirect("/");
     } else {
       res.render("signup");
     }
+=======
+    // if (req.user) {
+    //   res.redirect("/login");
+    // } else {
+      res.render("signup");
+    // }
+  });
+  app.get("/login", function (req, res) {
+    // if (req.user) {
+      res.render("login");
+    // } else {
+    //   res.redirect("signup");
+    // }
+>>>>>>> develop
   });
 
   //LOGIN ROUTES

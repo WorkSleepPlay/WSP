@@ -13,8 +13,8 @@ $(document).ready(function () {
     var userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
-      age: age.val().trim(),
-      fullName: fullName.val().trim()
+      fullName: fullName.val().trim(),
+      age: age.val().trim()
     };
     console.log(userData);
 

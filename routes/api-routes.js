@@ -9,7 +9,7 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
-    console.log(res);
+    // console.log(res);
     db.user
       .create({
         email: req.body.email,
@@ -17,18 +17,29 @@ module.exports = function (app) {
         fullName: req.body.fullName,
         age: req.body.age,
       })
+<<<<<<< HEAD
       .then(function () {
         res.redirect().end();
         // do we want them to go to the login after to authenticate? Or go somewhere else
       })
       .catch(function (err) {
         res.status(400).json(err);
+=======
+      .then(function (dbUser) {
+        res.redirect("/login");
+        // res.json(dbUser);
+        // do we want them to go to the login after to authenticate? Or go somewhere else
+      })
+      .catch(function (err) {
+        console.error("sign up error", err)
+        res.json(err);
+>>>>>>> develop
       });
   });
 
   //LOGIN ROUTES
 
-  app.get("/api/login", function (req, res) {
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
     res.
   });
@@ -42,7 +53,14 @@ module.exports = function (app) {
   app.get("/api/user", function (req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
-      res.json({});
+      // res.json({});
+      db.user
+        .findAll({
+          include: [db.userData],
+        })
+        .then(function (dbUser) {
+          res.json(dbUser);
+        });
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
@@ -53,13 +71,6 @@ module.exports = function (app) {
         fullName: req.user.fullName,
         age: req.user.age,
       });
-      db.user
-        .findAll({
-          include: [db.userData],
-        })
-        .then(function (dbUser) {
-          res.json(dbUser);
-        });
     }
   });
   app.get("/api/user/:id", function (req, res) {
