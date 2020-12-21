@@ -1,13 +1,9 @@
-// Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function (app) {
-  //SIGNUP ROUTES
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
+  // SIGNUP API ROUTES
   app.post("/api/signup", function (req, res) {
     // console.log(res);
     db.user
@@ -20,7 +16,6 @@ module.exports = function (app) {
       .then(function (dbUser) {
         res.redirect("/login");
         // res.json(dbUser);
-        // do we want them to go to the login after to authenticate? Or go somewhere else
       })
       .catch(function (err) {
         console.error("sign up error", err)
@@ -28,21 +23,20 @@ module.exports = function (app) {
       });
   });
 
-  //LOGIN ROUTES
-
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  //LOGIN API ROUTES
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
-  //LOGOUT ROUTES
+  //LOGOUT API ROUTES
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
 
+  //USER TABLE API ROUTES
   app.get("/api/user", function (req, res) {
     if (!req.user) {
-      // The user is not logged in, send back an empty object
       // res.json({});
       db.user
         .findAll({
@@ -52,8 +46,6 @@ module.exports = function (app) {
           res.json(dbUser);
         });
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
         id: req.user.id,
@@ -63,6 +55,7 @@ module.exports = function (app) {
       });
     }
   });
+
   app.get("/api/user/:id", function (req, res) {
     db.user
       .findOne({
@@ -76,6 +69,7 @@ module.exports = function (app) {
       });
   });
 
+  //USERDATA TABLE API ROUTES
   // app.post("api/update", function (req, res) {
   //   db.userData.create({
   //       work: req.body.work,
