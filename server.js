@@ -23,6 +23,10 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
+// Requiring our routes
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
@@ -34,9 +38,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({
