@@ -1,17 +1,14 @@
 {{> nav }}
 <div class="form-container">
-  <form class="form-signin text-center" action="/login" method="post">
-
-
-    <form class="log-in-form">
+  <form class="form-signin text-center" id="log-in-form" action="/api/login" method="post">
       <h4 class="text-center">Log in with you email account</h4>
       <label>{{email-input}}
-        <input type="email" placeholder="somebody@example.com">
+        <input type="email" placeholder="somebody@example.com" id="email-input">
       </label>
       <label>{{password-input}}
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password" id="password-input">
       </label>
-      <p><input type="submit" class="button expanded" value="Log in"></input></p>
+      <button type="submit" class="button expanded" value="Log in"></button>
       <p class="mt-5 mb-3 text-muted">WSP © 2020</p>
     </form>
 
