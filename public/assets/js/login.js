@@ -17,15 +17,15 @@ $(document).ready(function () {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      userPassword: passwordInput.val().trim()
     };
 
-    if (!userData.email || !userData.password) {
+    if (!userData.email || !userData.userPassword) {
       return;
     }
     console.log("userData", userData)
     // If we have an email and password we run the loginUser function and clear the form
-    loginUser(userData.email, userData.password);
+    loginUser(userData.email, userData.userPassword);
     emailInput.val("");
     passwordInput.val("");
   });
@@ -36,14 +36,14 @@ $(document).ready(function () {
     $.ajax({
       data: {
         email: email,
-        password: password,
+        userPassword: password,
         fullName: fullName,
         age: age
       },
       url: "/api/signup",
       type: "POST",
     });
-    window.location.replace("/profile");
+    window.location.replace(`/profile?email=${email}`);
   };
     // $.post("/api/login", {
     //   email: email,

@@ -40,36 +40,37 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
-  app.get("/api/user", function (req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      // res.json({});
-      db.user
-        .findAll({
-          include: [db.userData],
-        })
-        .then(function (dbUser) {
-          res.json(dbUser);
-        });
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id,
-        userPassword: req.user.userPassword,
-        fullName: req.user.fullName,
-        age: req.user.age,
-      });
-    }
-  });
-  app.get("/api/user/:id", function (req, res) {
+  // app.get("/api/user", function (req, res) {
+  //   if (!req.user) {
+  //     // The user is not logged in, send back an empty object
+  //     // res.json({});
+  //     db.user
+  //       .findAll({
+  //         include: [db.userData],
+  //       })
+  //       .then(function (dbUser) {
+  //         res.json(dbUser);
+  //       });
+  //   } else {
+  //     // Otherwise send back the user's email and id
+  //     // Sending back a password, even a hashed password, isn't a good idea
+  //     res.json({
+  //       email: req.user.email,
+  //       id: req.user.id,
+  //       userPassword: req.user.userPassword,
+  //       fullName: req.user.fullName,
+  //       age: req.user.age,
+  //     });
+  //   }
+  // });
+  app.get("/api/user/:email", function (req, res) {
+    console.log('console', req);
     db.user
       .findOne({
         where: {
-          id: req.params.id,
+          email: req.params.email,
         },
-        include: [db.userData],
+        // include: [db.userData],
       })
       .then(function (dbUser) {
         res.json(dbUser);
