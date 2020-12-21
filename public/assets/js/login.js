@@ -33,12 +33,24 @@ $(document).ready(function () {
   // loginUser does a post to our "api/login" route and if successful, redirects us the the profile page
   function loginUser(email, password) {
     console.log("log in user")
-    $.post("/api/login", {
-      email: email,
-      password: password,
-    })
-      .then(function () {
-        console.log("success login")
+    $.ajax({
+      data: {
+        email: email,
+        password: password,
+        fullName: fullName,
+        age: age
+      },
+      url: "/api/signup",
+      type: "POST",
+    });
+    window.location.replace("/profile");
+  };
+    // $.post("/api/login", {
+    //   email: email,
+    //   password: password,
+    // })
+    //   .then(function () {
+    //     console.log("success login")
         // $.get("/api/user_data/" + emailInput, function (data) {
         //   console.log(data);
         //   if (data) {
@@ -49,11 +61,11 @@ $(document).ready(function () {
         //   }
         // })
 
-        window.location.replace("/profile");
-        // If there's an error, log the error
-      })
-      .catch(function (err) {
-        console.log("log in error", err);
-      });
-  }
+      //   window.location.replace("/profile");
+      //   // If there's an error, log the error
+      // })
+      // .catch(function (err) {
+      //   console.log("log in error", err);
+      // });
+  
 });

@@ -43,7 +43,14 @@ module.exports = function (app) {
   app.get("/api/user", function (req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
-      res.json({});
+      // res.json({});
+      db.user
+        .findAll({
+          include: [db.userData],
+        })
+        .then(function (dbUser) {
+          res.json(dbUser);
+        });
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
@@ -54,13 +61,6 @@ module.exports = function (app) {
         fullName: req.user.fullName,
         age: req.user.age,
       });
-      db.user
-        .findAll({
-          include: [db.userData],
-        })
-        .then(function (dbUser) {
-          res.json(dbUser);
-        });
     }
   });
   app.get("/api/user/:id", function (req, res) {
