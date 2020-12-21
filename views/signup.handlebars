@@ -1,5 +1,8 @@
 {{> nav }}
-<form class="callout text-center" id="form.signup" action="/api/signup" method="post">
+<br>
+<br>
+<br>
+<form class="callout text-center" id="formsignup">
 
     {{!-- Header --}}
     <h1>Sign Up</h1>
@@ -7,8 +10,7 @@
     {{!-- Email Form Field --}}
     <div class="floated-label-wrapper">
         <label for="email">{{email}}</label>
-        <input type="text" id="email" name="email" class="form-control p-4" placeholder="Email" required=""
-            autofocus="">
+        <input type="text" id="email" name="email" class="form-control p-4" placeholder="Email">
     </div>
 
     {{!-- Password Form Field --}}
@@ -36,7 +38,7 @@
     </div>
 
     {{!-- Submit Button --}}
-    <input class="button expanded" type="submit" value="Submit">
+    <input class="button expanded" type="submit" id="submit" value="Submit">
 
     {{!-- Footer --}}
     <p>Already a member? Log in <a href="/login">here</a></p>
