@@ -30,7 +30,7 @@ module.exports = function (app) {
 
   //LOGIN ROUTES
 
-  app.get("/api/login", function (req, res) {
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });
 
