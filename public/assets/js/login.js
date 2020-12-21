@@ -1,10 +1,11 @@
 $(document).ready(function () {
   // Getting references to our form and inputs
-  var loginForm = $("loginForm");
-  var emailInput = $("input#email");
-  var passwordInput = $("input#password");
-  var ageInput = $("input#age");
-  var nameInput = $("input#name");
+  var loginForm = $("#log-in-form");
+  
+  var emailInput = $("input#email-input");
+  var passwordInput = $("input#password-input");
+  var ageInput = $("input#age-input");
+  var nameInput = $("input#name-input");
   var fullName;
   var emailEntry;
   var age;
@@ -23,7 +24,6 @@ $(document).ready(function () {
       return;
     }
     console.log("userData", userData)
-
     // If we have an email and password we run the loginUser function and clear the form
     loginUser(userData.email, userData.password);
     emailInput.val("");

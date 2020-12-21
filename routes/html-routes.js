@@ -1,5 +1,6 @@
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
+var passport = require("../config/passport");
 
 // Requiring our custom middleware for checking if a user is logged in
 // var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -7,18 +8,18 @@ var path = require("path");
 module.exports = function (app) {
   //SIGNUP ROUTES
   app.get("/signup", function (req, res) {
-    if (req.user) {
-      res.redirect("/api/login");
-    } else {
+    // if (req.user) {
+    //   res.redirect("/login");
+    // } else {
       res.render("signup");
-    }
+    // }
   });
   app.get("/login", function (req, res) {
-    if (req.user) {
-      res.redirect("/api/login");
-    } else {
-      res.render("signup");
-    }
+    // if (req.user) {
+      res.render("login");
+    // } else {
+    //   res.redirect("signup");
+    // }
   });
   //LOGIN ROUTES
   app.get("/", function (req, res) {

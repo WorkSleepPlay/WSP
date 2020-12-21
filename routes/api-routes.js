@@ -9,7 +9,7 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
-    console.log(res);
+    // console.log(res);
     db.user
       .create({
         email: req.body.email,
@@ -18,18 +18,19 @@ module.exports = function (app) {
         age: req.body.age,
       })
       .then(function (dbUser) {
-        res.redirect(307, "/api/login");
-        res.json(dbUser);
+        res.redirect("/login");
+        // res.json(dbUser);
         // do we want them to go to the login after to authenticate? Or go somewhere else
       })
       .catch(function (err) {
-        res.status(401).json(err);
+        console.error("sign up error", err)
+        res.json(err);
       });
   });
 
   //LOGIN ROUTES
 
-  app.get("/api/login", function (req, res) {
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });
 
