@@ -1,11 +1,19 @@
 $(document).ready(function () {
   // Getting references to our form and inputs
   var loginForm = $("#log-in-form");
+<<<<<<< HEAD
   
   var emailInput = $("#email-input");
   var passwordInput = $("#password-input");
   var ageInput = $("#age-input");
   var nameInput = $("#name-input");
+=======
+
+  var emailInput = $("input#email-input");
+  var passwordInput = $("input#password-input");
+  var ageInput = $("input#age-input");
+  var nameInput = $("input#name-input");
+>>>>>>> develop
   var fullName;
   var emailEntry;
   var age;
@@ -43,29 +51,33 @@ $(document).ready(function () {
       url: "/api/signup",
       type: "POST",
     });
+<<<<<<< HEAD
     window.location.replace(`/profile?email=${email}`);
+=======
+    window.location.replace("/home");
+>>>>>>> develop
   };
-    // $.post("/api/login", {
-    //   email: email,
-    //   password: password,
-    // })
-    //   .then(function () {
-    //     console.log("success login")
-        // $.get("/api/user_data/" + emailInput, function (data) {
-        //   console.log(data);
-        //   if (data) {
-        //     fullName = data.fullName;
-        //     emailEntry = data.email;
-        //     age = data.age;
-        //     id = data.id;
-        //   }
-        // })
+  // $.post("/api/login", {
+  //   email: email,
+  //   password: password,
+  // })
+  //   .then(function () {
+  //     console.log("success login")
+  // $.get("/api/user_data/" + emailInput, function (data) {
+  //   console.log(data);
+  //   if (data) {
+  //     fullName = data.fullName;
+  //     emailEntry = data.email;
+  //     age = data.age;
+  //     id = data.id;
+  //   }
+  // })
 
-      //   window.location.replace("/profile");
-      //   // If there's an error, log the error
-      // })
-      // .catch(function (err) {
-      //   console.log("log in error", err);
-      // });
-  
+  //   window.location.replace("/profile");
+  //   // If there's an error, log the error
+  // })
+  // .catch(function (err) {
+  //   console.log("log in error", err);
+  // });
+
 });

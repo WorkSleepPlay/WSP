@@ -1,17 +1,17 @@
 {{> nav }}
-<br>
-<br>
-<br>
-<br>
+<form class="callout text-center" id="form.signup" action="/api/signup" method="post">
 
-<form class="callout text-center" id="formsignup">
+    {{!-- Header --}}
     <h1>Sign Up</h1>
+
+    {{!-- Email Form Field --}}
     <div class="floated-label-wrapper">
         <label for="email">{{email}}</label>
         <input type="text" id="email" name="email" class="form-control p-4" placeholder="Email" required=""
             autofocus="">
     </div>
 
+    {{!-- Password Form Field --}}
     <div class="floated-label-wrapper">
         <label for="userPassword">
             {{userPassword}}
@@ -19,6 +19,7 @@
         <input type="password" id="userPassword" name="userPassword" placeholder="Password" required="">
     </div>
 
+    {{!-- Full Name Form Field --}}
     <div class="floated-label-wrapper">
         <label for="fullName">
             {{fullName}}
@@ -26,6 +27,7 @@
         <input type="text" id="fullName" name="fullName" placeholder="Full Name" required="">
     </div>
 
+    {{!-- Age Form Field --}}
     <div class="floated-label-wrapper">
         <label for="age">
             {{age}}
@@ -33,8 +35,11 @@
         <input type="text" id="age" name="age" placeholder="Age" required="">
     </div>
 
-    <input class="button expanded" type="submit" value="Sign up">
-    <p>Or log in <a href="/login">here</a></p>
+    {{!-- Submit Button --}}
+    <input class="button expanded" type="submit" value="Submit">
+
+    {{!-- Footer --}}
+    <p>Already a member? Log in <a href="/login">here</a></p>
     <p>WSP © 2020</p>
 </form>
 

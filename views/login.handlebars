@@ -1,28 +1,29 @@
 {{> nav }}
-<br>
-<br>
-<br>
-<br>
-<div class="form-container">
-  <form class="form-signin text-center callout text-center" id="log-in-form">
-    <h1>Log in</h1>
-    <div class="floated-label-wrapperlarge-offset-2">
-      <label for="email">{{email-input}}</label>
-      <input type="email" placeholder="Email" id="email-input">
-      </label>
-    </div>
-    <div class="floated-label-wrapper">
-      <label for="password">{{password-input}}</label>
-      <input type="password" placeholder="Password" id="password-input">
-      </label>
-    </div>
+<form class="form-signin text-center" id="log-in-form">
 
+  {{!-- Header --}}
+  <h1>Log In</h1>
 
-    <input type="submit" class="button expanded" value="Log In"></button>
-    <p>Or Sign Up <a href="/signup">here</a></p>
-    <p>WSP © 2020</p>
-  </form>
-</div>
+  {{!-- Email Form Field --}}
+  <div class="floated-label-wrapper">
+    <label for="email">{{email-input}}</label>
+    <input type="email" placeholder="Email" id="email-input">
+  </div>
+
+  {{!-- Password Form Field --}}
+  <div class="floated-label-wrapper">
+    <label for="userPassword">{{password-input}}</label>
+    <input type="password" placeholder="Password" id="password-input">
+  </div>
+
+  {{!-- Submit Button --}}
+  {{!-- <button type="submit" class="button expanded" value="Log in"></button> --}}
+  <input class="button expanded" type="submit" value="Submit">
+
+  {{!-- Footer --}}
+  <p>Not a member? Sign up <a href="/signup">here</a></p>
+  <p>WSP © 2020</p>
+</form>
 
 
 <script src="./assets/js/login.js"></script>
