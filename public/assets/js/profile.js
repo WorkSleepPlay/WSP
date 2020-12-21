@@ -6,13 +6,13 @@ $(document).ready(function () {
 
   profileInfo()
 
-  function profileInfo(userEmail) {
-    $.get("/api/user_data/" + userEmail, function (data) {
-      if (data) {
-        fullName = data.fullName;
-        email = data.email;
-        age = data.age;
-        id = data.id;
+  function profileInfo() {
+    $.get("/api/user", function (req,res) {
+      if (req) {
+        fullName = req.body.fullName;
+        email = req.body.email;
+        age = req.body.age;
+        id = req.body.id;
       }
     })
   }
