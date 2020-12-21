@@ -1,9 +1,11 @@
 $(document).ready(function () {
   // Getting references to our form and inputs
-
-  var loginForm = $("log-in-form");
-  var emailInput = $("#email");
-  var passwordInput = $("#userPassword");
+  var loginForm = $("#log-in-form");
+  
+  var emailInput = $("input#email-input");
+  var passwordInput = $("input#password-input");
+  var ageInput = $("input#age-input");
+  var nameInput = $("input#name-input");
   var fullName;
   var emailEntry;
   var age;
@@ -58,6 +60,7 @@ $(document).ready(function () {
         //     id = data.id;
         //   }
         // })
+
       //   window.location.replace("/profile");
       //   // If there's an error, log the error
       // })
