@@ -18,7 +18,7 @@ module.exports = function (app) {
         age: req.body.age,
       })
       .then(function (dbUser) {
-        res.redirect("/login");
+        res.redirect(307, "/login");
         res.json(dbUser);
         // do we want them to go to the login after to authenticate? Or go somewhere else
       })

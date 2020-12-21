@@ -7,18 +7,18 @@ var path = require("path");
 module.exports = function (app) {
   //SIGNUP ROUTES
   app.get("/signup", function (req, res) {
-    // if (req.user) {
-    //   res.redirect("/login");
-    // } else {
+    if (req.user) {
+      res.redirect("/login");
+    } else {
       res.render("signup");
-    // }
+    }
   });
   app.get("/login", function (req, res) {
-    // if (req.user) {
+    if (req.user) {
       res.render("login");
-    // } else {
-    //   res.redirect("signup");
-    // }
+    } else {
+      res.render("signup");
+    }
   });
   //LOGIN ROUTES
   app.get("/", function (req, res) {

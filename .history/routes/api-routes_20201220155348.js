@@ -24,7 +24,7 @@ module.exports = function (app) {
       })
       .catch(function (err) {
         console.error("sign up error", err)
-        res.status(401).json(err);
+        res.json(err);
       });
   });
 

@@ -14,11 +14,11 @@ module.exports = function (app) {
     // }
   });
   app.get("/login", function (req, res) {
-    // if (req.user) {
+    if (req.user) {
       res.render("login");
-    // } else {
-    //   res.redirect("signup");
-    // }
+    } else {
+      res.redirect("signup");
+    }
   });
   //LOGIN ROUTES
   app.get("/", function (req, res) {

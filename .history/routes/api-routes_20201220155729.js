@@ -19,12 +19,12 @@ module.exports = function (app) {
       })
       .then(function (dbUser) {
         res.redirect("/login");
-        res.json(dbUser);
+        // res.json(dbUser);
         // do we want them to go to the login after to authenticate? Or go somewhere else
       })
       .catch(function (err) {
         console.error("sign up error", err)
-        res.status(401).json(err);
+        res.json(err);
       });
   });
 
