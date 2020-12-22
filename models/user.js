@@ -44,11 +44,6 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true
         }
-        // userInfoId: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     defaultValue: 1
-        // }
     }, {
         freezeTableName: true
     });
