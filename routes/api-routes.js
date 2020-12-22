@@ -1,31 +1,30 @@
-var db = require("../models");
-var passport = require("../config/passport");
+const db = require("../models");
+const passport = require("../config/passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated")
 
 module.exports = function (app) {
-
-  // SIGNUP API ROUTES
-  app.post("/api/signup", function (req, res) {
-    // console.log(res);
-    db.user
-      .create({
-        email: req.body.email,
-        userPassword: req.body.userPassword,
-        fullName: req.body.fullName,
-        age: req.body.age,
-      })
-      .then(function (dbUser) {
-        res.redirect("/login");
-        // res.json(dbUser);
-      })
-      .catch(function (err) {
-        console.error("sign up error", err)
-        res.json(err);
-      });
-  });
 
   //LOGIN API ROUTES
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
+  });
+
+  // SIGNUP API ROUTES
+  app.post("/api/signup", function (req, res) {
+    db.user
+      .create({
+        email: req.body.email,
+        password: req.body.password,
+        fullName: req.body.fullName,
+        age: req.body.age,
+      })
+      .then(function () {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+        console.log(err);
+      });
   });
 
   //LOGOUT API ROUTES
@@ -34,20 +33,7 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
-  //USER TABLE API ROUTES
-  // app.get("/api/user", function (req, res) {
-  //   console.log("+++++++++++++++++++++++++++++++++++++++++++++++++")
-  //   console.log(req.user);
-  //   console.log("+++++++++++++++++++++++++++++++++++++++++++++++++")
-  //   res.render("profile", {
-  //     email: req.user.email,
-  //     id: req.user.id,
-  //     userPassword: req.user.userPassword,
-  //     fullName: req.user.fullName,
-  //     age: req.user.age,
-  //   });
-  // });
-
+  //USER API ROUTES
   app.get("/api/user/:id", function (req, res) {
     db.user
       .findOne({
@@ -62,19 +48,49 @@ module.exports = function (app) {
       });
   });
 
-  //USERDATA TABLE API ROUTES
-  // app.post("api/update", function (req, res) {
-  //   db.userData.create({
-  //       work: req.body.work,
-  //       sleep: req.body.sleep,
-  //       play: req.body.play,
-  //     })
-  //     .then(function (dbUser) {
-  //       res.redirect(307, "/profile");
-  //       // do we want them to go to the login after to authenticate? Or go somewhere else
-  //     })
-  //     .catch(function (err) {
-  //       res.status(401).json(err);
-  //     });
-  // })
+  app.get("/api/user", function (req, res) {
+    var userObject = {};
+    if (req.userObject.user_id) {
+      userObject.UserId = req.userObject.user_id;
+    }
+    db.Present.findAll({
+      where: userObject,
+    }).then(function (dbPresent) {
+      res.json(dbPresent);
+    });
+  });
+
+  // USERDATA TABLE API ROUTES
+  app.post("/api/profile", isAuthenticated, function (req, res) {
+    db.userData.create({
+        work: req.body.work,
+        sleep: req.body.sleep,
+        play: req.body.play,
+      })
+      .then(function () {
+        res.redirect("/profile");
+      });
+  });
+
+  app.get("/api/profile:id", function (req, res) {
+    db.userData.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.user]
+    }).then(function (dbUserData) {
+      console.log(dbUserData);
+      res.json(dbUserData);
+    });
+  });
+
+  app.put("/api/profile", isAuthenticated, function (req, res) {
+    db.userData.update(req.body, {
+      where: {
+        id: req.body.id,
+      },
+    }).then(function (dbUserData) {
+      res.json(dbUserData);
+    });
+  });
 };

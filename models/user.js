@@ -1,5 +1,7 @@
+var bcrypt = require("bcryptjs");
+
 module.exports = function (sequelize, DataTypes) {
-    var user = sequelize.define("user", {
+    const user = sequelize.define("user", {
         fullName: {
             type: DataTypes.STRING,
             allowNull: false
@@ -10,52 +12,33 @@ module.exports = function (sequelize, DataTypes) {
             unique: true,
             validate: {
                 isEmail: true,
-                isLowercase: true
             }
         },
-        userPassword: {
+        password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [4, 10]
-            }
         },
         age: {
             type: DataTypes.INTEGER,
             allowNull: true,
-            validate: {
-                len: [1, 3],
-                isInt: true
-            }
-        },
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal("NOW()")
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal("NOW()")
-        },
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
         }
-        // userInfoId: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     defaultValue: 1
-        // }
-    }, {
-        freezeTableName: true
     });
+
     user.associate = function (models) {
         user.hasMany(models.userData, {
-            onDelete: "cascade"
+            foreignKey: {
+                onDelete: "cascade"
+            },
+            hooks: true
         });
     };
+
+    user.prototype.validPassword = function (password) {
+        return bcrypt.compareSync(password, this.password);
+    };
+
+    user.addHook("beforeCreate", function (user) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    });
     return user;
 };
