@@ -11,16 +11,29 @@ var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 var app = express();
-app.use(express.urlencoded({
-  extended: true
-}));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 app.use(express.json());
 app.use(express.static("public"));
-
+app.use(
+  session({
+    secret: "yourSecret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 // Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({
-  defaultLayout: "main"
-}));
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main",
+  })
+);
 app.set("view engine", "handlebars");
 
 // Requiring our routes
@@ -32,22 +45,21 @@ app.use(
   session({
     secret: "keyboard cat",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
-
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync({
-  // force: true
-}).then(function () {
-  app.listen(PORT, function () {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
+db.sequelize
+  .sync({
+    // force: true
+  })
+  .then(function () {
+    app.listen(PORT, function () {
+      console.log(
+        "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+        PORT,
+        PORT
+      );
+    });
   });
-});

@@ -2,7 +2,6 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function (app) {
-
   // SIGNUP API ROUTES
   app.post("/api/signup", function (req, res) {
     // console.log(res);
@@ -18,14 +17,17 @@ module.exports = function (app) {
         // res.json(dbUser);
       })
       .catch(function (err) {
-        console.error("sign up error", err)
+        console.error("sign up error", err);
         res.json(err);
       });
   });
 
   //LOGIN API ROUTES
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
+    req.session.email = req.user.email;
+    console.log("I am in api/log");
     res.json(req.user);
+    // res.render("home");
   });
 
   //LOGOUT API ROUTES
