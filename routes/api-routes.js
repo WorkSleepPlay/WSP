@@ -24,17 +24,17 @@ module.exports = function (app) {
 
   //LOGIN API ROUTES
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
-    req.session.email = req.user.email;
+    // req.session.passport.email = req.user.email;
     console.log("I am in api/log");
     res.json(req.user);
     // res.render("home");
   });
 
   //LOGOUT API ROUTES
-  app.get("/logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
-  });
+  // app.get("/logout", function (req, res) {
+  //   req.logout();
+  //   res.redirect("/");
+  // });
 
   //USER TABLE API ROUTES
   app.get("/api/user", function (req, res) {
@@ -51,7 +51,6 @@ module.exports = function (app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        userPassword: req.user.userPassword,
         fullName: req.user.fullName,
         age: req.user.age,
       });
