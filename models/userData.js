@@ -12,20 +12,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DATE,
             allowNull: true,
         },
-        loginDate: {
-            type: DataTypes.DATEONLY,
-            allowNull: true,
-            get() {
-                return moment(this.getDataValue('loginDate')).format('DD/MM/YYYY');
-            }
-        },
-        daysActive: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            get() {
-                return moment(this.getDataValue('daysActive')).startOf(createdAt).fromNow();
-            }
-        },
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -35,6 +21,12 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("NOW()")
+        },
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
         }
     }, {
         freezeTableName: true

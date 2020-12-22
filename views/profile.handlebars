@@ -10,25 +10,31 @@
         <div columns small-6 class="work-feature-block-profile">
             <div row>
                 <h3>Profile Info</h3>
-                <ul>
-                    <li>Full Name: {{ fullName }}</li>
-                    <li>Email: {{ email }}</li>
-                    <li>Age: {{ age }}</li>
-                </ul>
-            </div>
-            <div row>
-                <h3>Membership</h3>
-                <li>Member Since: 12/22/2020</li>
+                <ul>Full Name: {{ fullName }}</ul>
+                <ul>Email: {{ email }}</ul>
+                <ul>Age: {{ age }}</ul>
+                <ul>Days Active: {{ daysActive }}</ul>
             </div>
         </div>
     </div>
-    <div row>
-        <h2>My Productivity</h2>
-        <ul class="list-group">
-            <li class="list-group-item" id="b1" >Work Result</li>
-            <li class="list-group-item" id="b2">Sleep Result</li>
-            <li class="list-group-item" id="b3">Play Result</li>
-        </ul>
+
+    <h2 class="work-feature-block-header row">My Productivity</h2>
+    <div class="work-feature-block row flex-container align-center">
+        {{!-- Profile Info Pulled From User Table In DB --}}
+        <div columns small-6 class="work-feature-block-profile">
+            <div row>
+                <h3>Work</h3>
+                <ul>{{ work }}</ul>
+            </div>
+            <div row>
+                <h3>Sleep</h3>
+                <ul>{{ sleep }}</ul>
+            </div>
+            <div row>
+                <h3>Play</h3>
+                <ul>{{ play }}</ul>
+            </div>
+        </div>
     </div>
 </main>
 <footer class="footer">
