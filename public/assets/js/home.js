@@ -1,24 +1,4 @@
-// on ready require npm package, create timer, bring in time from home.handlebars, log time
 $(document).ready(function () {
-  // const time = document.getElementById("time");
-
-  // const Timer = require("time-counter"),
-  //   log = function (console) {
-  //     console.log.bind(console);
-  //   };
-  // // creating and calling timer on appropriate button clicks
-  // const countUpTimer = new Timer({
-  //   direction: "up",
-  //   startValue: 0,
-  //   interval: 50,
-  // });
-  // countUpTimer.on("change", log);
-  // // function to add time to html
-  // function timeLeft() {
-  //   time.textContent = "Time Elapsed: " + log;
-  // }
-
-  // On Click Functions For Work Sleep Play
   $("#b1").on("click", function () {
     event.preventDefault();
     startTimer();
@@ -44,8 +24,6 @@ $(document).ready(function () {
     document.getElementById("b2").setAttribute("disabled", false);
     document.getElementById("b3").setAttribute("disabled", false);
   });
-
-  //Timer
   var time = 0;
   var maxTime = 86400;
   var timer = document.getElementById("time");
