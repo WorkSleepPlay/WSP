@@ -1,5 +1,8 @@
 // on ready require npm package, create timer, bring in time from home.handlebars, log time
 $(document).ready(function () {
+
+  let timeHandle;
+
   // const time = document.getElementById("time");
 
   // const Timer = require("time-counter"),
@@ -19,30 +22,32 @@ $(document).ready(function () {
   // }
 
   // On Click Functions For Work Sleep Play
-  $("#b1").on("click", function () {
+  $("#work-button").on("click", function (event) {
     event.preventDefault();
     startTimer();
-    document.getElementById("b2").setAttribute("disabled", true);
-    document.getElementById("b3").setAttribute("disabled", true);
+    document.getElementById("sleep-button").setAttribute("disabled", true);
+    document.getElementById("play-button").setAttribute("disabled", true);
   });
-  $("#b2").on("click", function () {
+  $("#sleep-button").on("click", function (event) {
     event.preventDefault();
     startTimer();
-    document.getElementById("b1").setAttribute("disabled", true);
-    document.getElementById("b3").setAttribute("disabled", true);
+    document.getElementById("work-button").setAttribute("disabled", true);
+    document.getElementById("play-button").setAttribute("disabled", true);
   });
-  $("#b3").on("click", function () {
+  $("#play-button").on("click", function (event) {
     event.preventDefault();
     startTimer();
-    document.getElementById("b2").setAttribute("disabled", true);
-    document.getElementById("b1").setAttribute("disabled", true);
+    document.getElementById("sleep-button").setAttribute("disabled", true);
+    document.getElementById("work-button").setAttribute("disabled", true);
   });
-  $("#b4").on("click", function () {
+
+  // STOP BUTTON
+  $("#stop-button").on("click", function (event) {
     event.preventDefault();
     clearInterval(timeHandle);
-    document.getElementById("b1").setAttribute("disabled", false);
-    document.getElementById("b2").setAttribute("disabled", false);
-    document.getElementById("b3").setAttribute("disabled", false);
+    document.getElementById("work-button").removeAttribute("disabled");
+    document.getElementById("sleep-button").removeAttribute("disabled");
+    document.getElementById("play-button").removeAttribute("disabled");
   });
 
   //Timer
@@ -50,16 +55,16 @@ $(document).ready(function () {
   var maxTime = 86400;
   var timer = document.getElementById("time");
 
-  function setTime(seconds) {
-    time = seconds;
+  function setTime() {
+    time++;
     timer.textContent = "Time Elapsed: " + time;
   }
 
   function startTimer() {
-    clearInterval(timeHandle);
-    setTime(maxTime);
+    // clearInterval(timeHandle);
+    setTime();
     timeHandle = setInterval(function () {
-      setTime(time + 1);
+      setTime();
       if (time > maxTime) {
         clearInterval(timeHandle);
       } else {
