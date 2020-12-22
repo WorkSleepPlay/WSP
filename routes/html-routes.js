@@ -43,8 +43,8 @@ module.exports = function (app) {
       res.render("home", currentUser);
     }
     res.redirect("login");
-    // console.log("i am in home");
-    // console.log(req.session);
+    console.log("i am in home");
+    console.log(req.session);
     // res.render("home");
   });
 
