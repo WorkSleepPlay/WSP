@@ -155,12 +155,14 @@ p {
 /*////////////////////////////////////////*/
 /* CSS for TOP BLOCK on profile page */
 /*////////////////////////////////////////*/
-.profile-container{
+.profile-container {
   margin-top: 10px;
   margin-bottom: 20%;
-  margin-left:20%;
+  margin-left: 20%;
   margin-right: 20px;
+  background-color: white;
 }
+
 .work-feature-block {
   padding: 10px 0;
   border-top: 1px solid #cacaca;
@@ -181,9 +183,11 @@ p {
   /* padding: 10px 0; */
   /* background-color: #565A87; */
 }
+
 h2 {
   margin-left: 20px;
 }
+
 h3 {
   margin-left: 20px;
 }
@@ -411,7 +415,7 @@ h3 {
 /*////////////////////////////////////////*/
 /* CSS signup page */
 /*////////////////////////////////////////*/
- .callout {
+.callout {
   margin-top: 40px;
   margin-left: 20px;
   margin-right: 20px;
