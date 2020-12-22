@@ -1,31 +1,63 @@
-// Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
+// var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-// Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+module.exports = function (app) {
+  //SIGNUP HTML ROUTES
+  app.get("/signup", function (req, res) {
+    // if (req.user) {
+    //   res.redirect("/login");
+    // } else {
+    res.render("signup");
+    // }
+  });
 
-module.exports = function(app) {
+  //LOGIN HTML ROUTES
+  app.get("/login", function (req, res) {
+    // if (req.user) {
+    res.render("login");
+    // } else {
+    //   res.redirect("signup");
+    // }
+  });
 
-  app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
+  // INDEX HTML ROUTES
+  app.get("/", function (req, res) {
     if (req.user) {
-      res.redirect("/members");
+      console.log("i logged in");
+      res.render("login");
+    } else {
+      console.log("I didn't");
+      res.redirect("/signup");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
+  //LOGOUT HTML ROUTES
+  app.get("/logout", function (req, res) {
+    res.render("login");
+  });
+
+  //HOMEPAGE HTML ROUTES
+  app.get("/home", function (req, res) {
+    const currentUser = req.session.passport.user;
+    if (currentUser) {
+      res.render("home", currentUser);
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.redirect("login");
+    console.log("i am in home");
+    console.log(req.session);
+    // res.render("home");
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
-  });
+  // app.get("/home", isAuthenticated, function (req, res) {
+  //   res.render("home");
+  // });
 
+  //PROFILE HTML ROUTES
+  app.get("/profile", function (req, res) {
+    res.render("profile");
+  });
 };
+
+// app.get("/profile", isAuthenticated, function (req, res) {
+//   res.render("profile");
+// });

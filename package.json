@@ -1,0 +1,42 @@
+{
+  "name": "worksleepplay",
+  "version": "1.0.0",
+  "description": "Work Sleep Play is a web app that allows the user to login in and select whether to work (productivity tracker), sleep (relaxing music/sounds and images to fall asleep to), or play (simple interactive games). The user will also be able to view their profile and see insights on how they’ve spent their time. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "^12.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WorkSleepPlay"
+  },
+  "keywords": [
+    "work",
+    "sleep",
+    "play"
+  ],
+  "author": "Amber Swartz, Maranda Zwieschowski, Nadine Delaire, Selma Elgabalawy",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "fs": "0.0.1-security",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "time-counter": "^1.0.0"
+  }
+}
