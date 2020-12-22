@@ -4,7 +4,6 @@ var passport = require("../config/passport");
 module.exports = function (app) {
   // SIGNUP API ROUTES
   app.post("/api/signup", function (req, res) {
-    // console.log(res);
     db.user
       .create({
         email: req.body.email,
@@ -14,7 +13,6 @@ module.exports = function (app) {
       })
       .then(function (dbUser) {
         res.redirect("/login");
-        // res.json(dbUser);
       })
       .catch(function (err) {
         console.error("sign up error", err);
@@ -24,10 +22,7 @@ module.exports = function (app) {
 
   //LOGIN API ROUTES
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
-    req.session.email = req.user.email;
-    console.log("I am in api/log");
-    res.json(req.user);
-    // res.render("home");
+    res.redirect("/home");
   });
 
   //LOGOUT API ROUTES
@@ -39,7 +34,6 @@ module.exports = function (app) {
   //USER TABLE API ROUTES
   app.get("/api/user", function (req, res) {
     if (!req.user) {
-      // res.json({});
       db.user
         .findAll({
           include: [db.userData],
@@ -51,7 +45,6 @@ module.exports = function (app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        userPassword: req.user.userPassword,
         fullName: req.user.fullName,
         age: req.user.age,
       });
