@@ -1,4 +1,3 @@
-/* css for nav */
 body {
 
   background-image: url("../../assets/img/background.jpeg");
@@ -63,8 +62,6 @@ body {
 .subnav-hero-subnav li a:hover {
   background: rgba(254, 254, 254, 0.15);
 }
-
-/* css for buttons */
 
 .button-rounded-hover {
   border: 0;
@@ -152,9 +149,7 @@ p {
 
 }
 
-/*////////////////////////////////////////*/
-/* CSS for TOP BLOCK on profile page */
-/*////////////////////////////////////////*/
+
 .profile-container{
   margin-top: 10px;
   margin-bottom: 20%;
@@ -168,18 +163,14 @@ p {
 }
 
 .work-feature-block-image {
-  /* display: block; */
   margin: auto;
   padding: 10px 0;
   margin-left: 20px;
 }
 
 .work-feature-block-profile {
-  /* display: block; */
   margin: auto;
   margin-left: 5px;
-  /* padding: 10px 0; */
-  /* background-color: #565A87; */
 }
 h2 {
   margin-left: 20px;
@@ -187,10 +178,6 @@ h2 {
 h3 {
   margin-left: 20px;
 }
-
-/*////////////////////////////////////////*/
-/* CSS for DIVIDER on profile page */
-/*////////////////////////////////////////*/
 
 .type-sidelines {
   display: block;
@@ -332,9 +319,6 @@ h3 {
   left: 100%;
 }
 
-/*////////////////////////////////////////*/
-/* CSS for list group on profile page */
-/*////////////////////////////////////////*/
 .list-group {
   margin-bottom: 1rem;
   margin-right: 1rem;
@@ -403,14 +387,10 @@ h3 {
   margin-left: 10px;
 }
 
-/* This is for the profile container */
 .profile-container {
   margin-left: 10px;
 }
 
-/*////////////////////////////////////////*/
-/* CSS signup page */
-/*////////////////////////////////////////*/
  .callout {
   margin-top: 40px;
   margin-left: 20px;
@@ -450,9 +430,6 @@ h3 {
   transition: all 0.15s ease-in;
 }
 
-/*////////////////////////////////////////*/
-/* CSS login page */
-/*////////////////////////////////////////*/
 #log-in-form {
   margin-top: 40px;
   margin-left: 20px;
@@ -465,27 +442,17 @@ h3 {
   border-radius: 0;
 }
 
-
-
-
-/*////////////////////////////////////////*/
-/* Selma */
-/*////////////////////////////////////////*/
-
-/* Sets the containers height and width */
 .base-timer {
   position: relative;
   height: 300px;
   width: 300px;
 }
 
-/* Removes SVG styling that would hide the time label */
 .base-timer__circle {
   fill: none;
   stroke: none;
 }
 
-/* The SVG path that displays the timer's progress */
 .base-timer__path-elapsed {
   stroke-width: 7px;
   stroke: red;
@@ -495,18 +462,11 @@ h3 {
 .base-timer__label {
   position: absolute;
 
-  /* Size should match the parent container */
   width: 300px;
   height: 300px;
-
-  /* Keep the label aligned to the top */
   top: 0;
-
-  /* Create a flexible box that centers content vertically and horizontally */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Sort of an arbitrary number; adjust to your liking */
   font-size: 48px;
 }
