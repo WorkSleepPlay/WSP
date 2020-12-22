@@ -4,7 +4,7 @@
   "description": "Work Sleep Play is a web app that allows the user to login in and select whether to work (productivity tracker), sleep (relaxing music/sounds and images to fall asleep to), or play (simple interactive games). The user will also be able to view their profile and see insights on how they’ve spent their time. ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node server.js"
   },
   "engines": {
@@ -28,6 +28,7 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "fs": "0.0.1-security",
+    "mocha": "^8.2.1",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
