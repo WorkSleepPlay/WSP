@@ -42,8 +42,12 @@ $(document).ready(function () {
       },
       url: "/api/login",
       type: "POST",
+    }).then(function () {
+
+      window.location.replace("/home");
     });
-    // window.location.replace("/home");
+
+
   }
   // $.post("/api/login", {
   //   email: email,
