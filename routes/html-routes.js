@@ -2,7 +2,6 @@ var path = require("path");
 // var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
-
   //SIGNUP HTML ROUTES
   app.get("/signup", function (req, res) {
     // if (req.user) {
@@ -24,8 +23,10 @@ module.exports = function (app) {
   // INDEX HTML ROUTES
   app.get("/", function (req, res) {
     if (req.user) {
+      console.log("i logged in");
       res.render("login");
     } else {
+      console.log("I didn't");
       res.redirect("/signup");
     }
   });
@@ -37,7 +38,14 @@ module.exports = function (app) {
 
   //HOMEPAGE HTML ROUTES
   app.get("/home", function (req, res) {
-    res.render("home");
+    const currentUser = req.session.passport.user;
+    if (currentUser) {
+      res.render("home", currentUser);
+    }
+    res.redirect("login");
+    // console.log("i am in home");
+    // console.log(req.session);
+    // res.render("home");
   });
 
   // app.get("/home", isAuthenticated, function (req, res) {
