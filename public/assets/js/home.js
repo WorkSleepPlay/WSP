@@ -1,5 +1,9 @@
 // on ready require npm package, create timer, bring in time from home.handlebars, log time
 $(document).ready(function () {
+  let timeHandle;
+  var time = 0;
+  var maxTime = 86400;
+  var timer = document.getElementById("time");
   // const time = document.getElementById("time");
 
   // const Timer = require("time-counter"),
@@ -19,52 +23,49 @@ $(document).ready(function () {
   // }
 
   // On Click Functions For Work Sleep Play
-  $("#b1").on("click", function () {
+  $("#b1").on("click", function (event) {
+    console.log("work");
     event.preventDefault();
     startTimer();
     document.getElementById("b2").setAttribute("disabled", true);
     document.getElementById("b3").setAttribute("disabled", true);
   });
-  $("#b2").on("click", function () {
+  $("#b2").on("click", function (event) {
     event.preventDefault();
     startTimer();
     document.getElementById("b1").setAttribute("disabled", true);
     document.getElementById("b3").setAttribute("disabled", true);
   });
-  $("#b3").on("click", function () {
+  $("#b3").on("click", function (event) {
     event.preventDefault();
     startTimer();
     document.getElementById("b2").setAttribute("disabled", true);
     document.getElementById("b1").setAttribute("disabled", true);
   });
-  $("#b4").on("click", function () {
+  $("#b4").on("click", function (event) {
     event.preventDefault();
     clearInterval(timeHandle);
-    document.getElementById("b1").setAttribute("disabled", false);
-    document.getElementById("b2").setAttribute("disabled", false);
-    document.getElementById("b3").setAttribute("disabled", false);
+    time = 0;
+    document.getElementById("b1").removeAttribute("disabled");
+    document.getElementById("b2").removeAttribute("disabled");
+    document.getElementById("b3").removeAttribute("disabled");
+    //send work sleep play back to userData table
   });
 
   //Timer
-  var time = 0;
-  var maxTime = 86400;
-  var timer = document.getElementById("time");
 
-  function setTime(seconds) {
-    time = seconds;
+
+  function setTime() {
+    time++;
     timer.textContent = "Time Elapsed: " + time;
   }
 
   function startTimer() {
-    clearInterval(timeHandle);
-    setTime(maxTime);
     timeHandle = setInterval(function () {
-      setTime(time + 1);
+      setTime();
       if (time > maxTime) {
         clearInterval(timeHandle);
-      } else {
-        console.log("whatever");
-      }
+      };
     }, 1000);
   }
 });
