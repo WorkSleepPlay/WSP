@@ -1,8 +1,11 @@
 var assert = require('assert');
-describe('Verify user has an email', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal([1, 2, 3].indexOf(4), -1);
-    });
-  });
+var should = require('chai').should();
+var expect  = require('chai').expect;
+
+it('Checking for null', function(){
+    var car = null;
+    //car.should.not.exist; (Cannot read property 'should' of null)
+    should.not.exist(car);
 });
+
+expect({a: 1}).to.deep.equal({a: 1});
