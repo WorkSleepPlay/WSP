@@ -1,49 +1,88 @@
-// Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
 
-module.exports = function(app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json(req.user);
-  });
-
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
-    })
-      .then(function() {
-        res.redirect(307, "/api/login");
+module.exports = function (app) {
+  // SIGNUP API ROUTES
+  app.post("/api/signup", function (req, res) {
+    // console.log(res);
+    db.user
+      .create({
+        email: req.body.email,
+        userPassword: req.body.userPassword,
+        fullName: req.body.fullName,
+        age: req.body.age,
       })
-      .catch(function(err) {
-        res.status(401).json(err);
+      .then(function (dbUser) {
+        res.redirect("/login");
+        // res.json(dbUser);
+      })
+      .catch(function (err) {
+        console.error("sign up error", err);
+        res.json(err);
       });
   });
 
-  // Route for logging user out
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
+  //LOGIN API ROUTES
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
+    // req.session.passport.email = req.user.email;
+    console.log("I am in api/log");
+    res.json(req.user);
+    // res.render("home");
   });
 
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
+  //LOGOUT API ROUTES
+  // app.get("/logout", function (req, res) {
+  //   req.logout();
+  //   res.redirect("/");
+  // });
+
+  //USER TABLE API ROUTES
+  app.get("/api/user", function (req, res) {
     if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
+      // res.json({});
+      db.user
+        .findAll({
+          include: [db.userData],
+        })
+        .then(function (dbUser) {
+          res.json(dbUser);
+        });
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        fullName: req.user.fullName,
+        age: req.user.age,
       });
     }
   });
+
+  app.get("/api/user/:id", function (req, res) {
+    db.user
+      .findOne({
+        where: {
+          id: req.params.id,
+        },
+        include: [db.userData],
+      })
+      .then(function (dbUser) {
+        res.json(dbUser);
+      });
+  });
+
+  //USERDATA TABLE API ROUTES
+  // app.post("api/update", function (req, res) {
+  //   db.userData.create({
+  //       work: req.body.work,
+  //       sleep: req.body.sleep,
+  //       play: req.body.play,
+  //     })
+  //     .then(function (dbUser) {
+  //       res.redirect(307, "/profile");
+  //       // do we want them to go to the login after to authenticate? Or go somewhere else
+  //     })
+  //     .catch(function (err) {
+  //       res.status(401).json(err);
+  //     });
+  // })
 };
