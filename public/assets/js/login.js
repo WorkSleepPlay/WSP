@@ -13,17 +13,17 @@ $(document).ready(function () {
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function (event) {
-    console.log("submit")
+    console.log("submit");
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
     };
 
     if (!userData.email || !userData.password) {
       return;
     }
-    console.log("userData", userData)
+    console.log("userData", userData);
     // If we have an email and password we run the loginUser function and clear the form
     loginUser(userData.email, userData.password);
     emailInput.val("");
@@ -32,19 +32,19 @@ $(document).ready(function () {
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the profile page
   function loginUser(email, password) {
-    console.log("log in user")
+    console.log("log in user");
     $.ajax({
       data: {
         email: email,
         password: password,
         fullName: fullName,
-        age: age
+        age: age,
       },
-      url: "/api/signup",
+      url: "/api/login",
       type: "POST",
     });
-    window.location.replace("/home");
-  };
+    // window.location.replace("/home");
+  }
   // $.post("/api/login", {
   //   email: email,
   //   password: password,
@@ -67,5 +67,4 @@ $(document).ready(function () {
   // .catch(function (err) {
   //   console.log("log in error", err);
   // });
-
 });
