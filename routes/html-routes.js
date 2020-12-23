@@ -25,13 +25,19 @@ module.exports = function (app) {
     res.render("home");
   });
 
-  //PROFILE HTML ROUTES
+  //PROFILE USER HTML ROUTES
   app.get("/profile", isAuthenticated, function (req, res) {
     let user = {
       fullName: req.user.fullName,
       email: req.user.email,
       age: req.user.age
     };
+    let userData = {
+      work: req.user.work,
+      sleep: req.user.sleep,
+      play: req.user.play
+    };
     res.render("profile", user);
+    res.render("profile", userData);
   });
 };
