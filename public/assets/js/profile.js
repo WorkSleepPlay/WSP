@@ -14,11 +14,12 @@ $(document).ready(function () {
 
   function profileInfo() {
     $.get("/api/user", function (req, res) {
+      // console.log(req);
       if (req) {
-        fullName = req.body.fullName;
-        email = req.body.email;
-        age = req.body.age;
-        id = req.body.id;
+        fullName = req.fullName;
+        email = req.email;
+        age = req.age;
+        id = req.id;
       }
     });
   }
