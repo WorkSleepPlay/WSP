@@ -8,43 +8,74 @@
         {{!-- Profile Picture --}}
         <div columns small-6>
             <div>
-                <img class="work-feature-block-image" src="https://placehold.it/200x200" />
+                <img class="work-feature-block-image" src="/assets/img/coolsanta.jpg" alt="cool santa" width="200"
+                    height="200" />
             </div>
         </div>
 
         {{!-- Profile Info Pulled From User Table In DB --}}
         <div columns small-6 class="work-feature-block-profile">
             <div row>
-                <h3>Profile Info</h3>
-                <ul>
-                    <li>Full Name: {{ fullName }}</li>
-                    <li>Email: {{ email }}</li>
-                    <li>Age: {{ age }}</li>
-                </ul>
-            </div>
-
-            {{!-- Days Active Pulled From User Table (createdDate) In DB and connected with Moment.js --}}
-            <div row>
-                <h3>Days Active</h3>
-                <li>Days Active: {{ daysActive }}</li>
+                <ul><strong>Full Name: </strong>{{ fullName }}</ul>
+                <ul><strong>Email: </strong>{{ email }}</ul>
+                <ul><strong>Age: </strong>{{ age }}</ul>
+                <ul><strong>Member Since: </strong>2020-12-22{{ createdAt }}</ul>
             </div>
         </div>
     </div>
 
-    {{!-- Here we will bring in timer results for each action taken by the user --}}
-    <div row>
-        <h2>My Productivity</h2>
-        <ul class="list-group">
-            <li class="list-group-item">Work Result<button class="button button-rounded-hover" id="delete-button"
-                    type="delete" name="delete"><i class="fi-trash">DELETE</i></button>
-            </li>
-            <li class="list-group-item">Sleep Result<button class="button button-rounded-hover" id="delete-button"
-                    type="delete" name="delete"><i class="fi-trash">DELETE</i></button>
-            </li>
-            <li class="list-group-item">Play Result<button class="button button-rounded-hover" id="delete-button"
-                    type="delete" name="delete"><i class="fi-trash">DELETE</i></button>
-            </li>
-        </ul>
+    <h2 class="work-feature-block-header row">My Productivity</h2>
+    <div class="work-feature-block row flex-container align-center">
+        {{!-- Profile Info Pulled From User Table In DB --}}
+        <div columns small-6 class="work-feature-block-profile">
+            <div row>
+                <ul>{{ work }}</ul>
+                <ul>{{ sleep }}</ul>
+                <ul>{{ play }}</ul>
+                {{!-- <canvas id="myChart" width="400" height="400"></canvas> --}}
+                <canvas id="myChart" width="800" height="600"></canvas>
+                <script>
+
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Work', 'Sleep', 'Play'],
+                            datasets: [{
+                                label: '# of Hours',
+                                data: [12, 4, 8],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
     </div>
 </main>
 

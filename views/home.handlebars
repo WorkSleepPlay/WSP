@@ -1,43 +1,47 @@
 {{> nav }}
 <main class="flex" id="content">
-  <div class="row">
-    <div class="medium-8 columns text-center">
-      <br>
-      <br>
-      <br>
+    <div class="row">
+        <div class="medium-8 columns text-center">
+            <br>
+            <br>
+            <br>
 
-      {{!-- Body --}}
-      <p><strong>Click a button below to begin tracking your day.</strong></p>
-      <hr />
-      <div class="row">
+            {{!-- Body --}}
+            <p><strong>Click a button below to begin tracking your day.</strong></p>
+            <hr />
+            <div class="row">
 
-        {{!-- Work Button --}}
-        <div class="column column-block">
-          <button class="button button-rounded-hover" id="b1"><i class="far fa-chart-bar"></i> WORK </button>
+                {{!-- Work Button --}}
+                <div class="column column-block">
+                    <button class="button button-rounded-hover" id="b1"><i class="far fa-chart-bar"></i> WORK </button>
+                </div>
+
+                {{!-- Sleep Button --}}
+                <div class="column column-block"></div>
+                <button class="button button-rounded-hover" id="b2"><i class="fas fa-moon"></i> SLEEP </button>
+            </div>
+
+            {{!-- Play Button --}}
+            <div class="column column-block">
+                <button class="button button-rounded-hover" id="b3"><i class="fas fa-dice"></i> PLAY </button>
+            </div>
+
+            {{!-- Stop Button --}}
+            <div class="column column-block">
+                <button class="button button-rounded-hover" id="b4"><i class="fas fa-hand-paper"></i> STOP TIME
+                </button>
+            </div>
         </div>
-
-        {{!-- Sleep Button --}}
-        <div class="column column-block"></div>
-        <button class="button button-rounded-hover" id="b2"><i class="fas fa-moon"></i> SLEEP </button>
-      </div>
-
-      {{!-- Play Button --}}
-      <div class="column column-block">
-        <button class="button button-rounded-hover" id="b3"><i class="fas fa-dice"></i> PLAY </button>
-      </div>
-
-      {{!-- Stop Button --}}
-      <div class="column column-block">
-        <button class="button button-rounded-hover" id="b4"><i class="fas fa-hand-paper"></i> STOP TIME </button>
-      </div>
     </div>
-  </div>
 </main>
+
 
 {{!-- Footer With Timer and Logout --}}
 <footer class="footer">
-  <div class="clearfix">
-    <a class="hollow button alert" href="/logout" id="logout">LOGOUT <i class="fas fa-sign-out-alt"></i></a>
-    <div class="cell small-4" id="time"><strong>Time Elapsed: </strong></div>
-  </div>
+    <div class="clearfix">
+        <a class="hollow button alert" href="/logout" id="logout">LOGOUT <i class="fas fa-sign-out-alt"></i></a>
+        <div class="cell small-4" id="time"><strong></strong></div>
+    </div>
 </footer>
+
+<script src="./assets/js/home.js"></script>
