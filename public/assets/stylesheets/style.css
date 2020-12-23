@@ -514,3 +514,8 @@ h3 {
   /* Sort of an arbitrary number; adjust to your liking */
   font-size: 48px;
 }
+
+/*Graph*/
+#myChart {
+  width: max-content;
+}
