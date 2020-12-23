@@ -38,6 +38,6 @@ module.exports = function (app) {
       play: req.user.play
     };
     res.render("profile", user);
-    res.render("profile", userData);
+    // res.render("profile", userData);
   });
 };
