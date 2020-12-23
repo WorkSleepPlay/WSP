@@ -66,7 +66,7 @@ $(document).ready(function () {
     $.post("/api/createdata", {
         work: "2020-12-22 21:21:04",
         sleep: "2020-12-22 21:21:04",
-        play: "2020-12-22 21:21:04
+        play: "2020-12-22 21:21:04"
       })
       .then(function (data) {
         // window.location.replace("/home");
