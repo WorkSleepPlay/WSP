@@ -66,9 +66,11 @@ module.exports = function (app) {
   app.post("/api/createdata", function (req, res) {
     db.userData
       .create({
-        work: req.body.work,
-        sleep: req.body.sleep,
-        play: req.body.play
+        day: new Date(),
+        actionType: req.body.actionType,
+        startTime: new Date(req.body.startTime),
+        duration: req.body.duration,
+        userId: req.user.id
       })
       .then(function (dbUser) {
         res.redirect("/home");
@@ -83,6 +85,9 @@ module.exports = function (app) {
     if (!req.user) {
       db.userData
         .findAll({
+          where: {
+            userId: req.user.id
+          },
           include: [db.userData],
         })
         .then(function (dbUser) {
