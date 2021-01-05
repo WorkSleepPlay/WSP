@@ -478,3 +478,8 @@ h3 {
   justify-content: center;
   font-size: 48px;
 }
+
+/*Graph*/
+#myChart {
+  width: max-content;
+}
