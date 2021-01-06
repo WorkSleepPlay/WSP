@@ -23,7 +23,6 @@ module.exports = function (app) {
 
   //LOGIN API ROUTES
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
-    console.log("I am in api/log");
     res.json(req.user);
   });
 
@@ -31,88 +30,109 @@ module.exports = function (app) {
 
   //USER TABLE API ROUTES
   app.get("/api/user", function (req, res) {
-    if (!req.user) {
-      db.user
-        .findAll({
-          include: [db.userData],
-        })
-        .then(function (dbUser) {
-          res.json(dbUser);
-        });
-    } else {
+    if (req.user) {
       res.json({
-        email: req.user.email,
-        id: req.user.id,
-        fullName: req.user.fullName,
-        age: req.user.age,
-      });
+        user: req.user
+      })
     }
-  });
 
+  });
   app.get("/api/user/:id", function (req, res) {
+    // if (!req.user) {
     db.user
       .findOne({
         where: {
           id: req.params.id,
         },
-        include: [db.userData],
+        include: [{
+          model: db.userdata
+        }],
       })
       .then(function (dbUser) {
-        res.json(dbUser);
+        console.log(dbUser);
+        res.json({
+          // email: req.user.email,
+          // id: req.user.id,
+          // fullName: req.user.fullName,
+          // age: req.user.age,
+          // createdAt: req.user.createdAt,
+          dbUser: dbUser
+        });
+        // } else {
+        //   res.json({
+        //     email: req.user.email,
+        //     id: req.user.id,
+        //     fullName: req.user.fullName,
+        //     age: req.user.age,
+        //   });
+        // }
       });
-  });
 
-  //USERDATA TABLE API ROUTES
-  app.post("/api/createdata", function (req, res) {
-    db.userData
-      .create({
-        day: new Date(),
-        actionType: req.body.actionType,
-        startTime: new Date(req.body.startTime),
-        duration: req.body.duration,
-        userId: req.user.id
-      })
-      .then(function (dbUser) {
-        res.redirect("/home");
-      })
-      .catch(function (err) {
-        console.error("error collecting data", err);
-        res.json(err);
-      });
-  });
+    // app.get("/api/user/:id", function (req, res) {
+    //   db.user
+    //     .findOne({
+    //       where: {
+    //         id: req.params.id,
+    //       },
+    //       include: [db.userdata],
+    //     })
+    //     .then(function (dbUser) {
+    //       res.json(dbUser);
+    //     });
+    // });
 
-  app.get("/api/userdata", function (req, res) {
-    if (!req.user) {
-      db.userData
-        .findAll({
+    //userdata TABLE API ROUTES
+    app.post("/api/createdata", function (req, res) {
+      db.userdata
+        .create({
+          day: new Date(),
+          actionType: req.body.actionType,
+          startTime: new Date(req.body.startTime),
+          duration: req.body.duration,
+          userId: req.user.id
+        })
+        .then(function (dbUser) {
+          res.redirect("/home");
+        })
+        .catch(function (err) {
+          console.error("error collecting data", err);
+          res.json(err);
+        });
+    });
+
+    // app.get("/api/userdata", function (req, res) {
+    //   if (!req.user) {
+    //     db.userdata
+    //       .findAll({
+    //         where: {
+    //           userId: req.user.id
+    //         },
+    //         include: [db.userdata],
+    //       })
+    //       .then(function (dbUser) {
+    //         res.json(dbUser);
+    //       });
+    //   } else {
+    //     res.json({
+    //       work: req.user.work,
+    //       sleep: req.user.sleep,
+    //       play: req.user.play
+    //     });
+    //   }
+    // });
+
+    app.get("/api/userdata/:userid", function (req, res) {
+      db.userdata
+        .findOne({
           where: {
-            userId: req.user.id
+            userid: req.params.userid,
           },
-          include: [db.userData],
+          include: [db.userdata],
         })
         .then(function (dbUser) {
           res.json(dbUser);
         });
-    } else {
-      res.json({
-        work: req.user.work,
-        sleep: req.user.sleep,
-        play: req.user.play
-      });
-    }
-  });
-
-  app.get("/api/userdata/:userid", function (req, res) {
-    db.userData
-      .findOne({
-        where: {
-          userid: req.params.userid,
-        },
-        include: [db.userData],
-      })
-      .then(function (dbUser) {
-        res.json(dbUser);
-      });
+    });
   });
 
 
@@ -141,7 +161,7 @@ module.exports = function (app) {
 
 
   // app.post("api/update", function (req, res) {
-  //   db.userData.create({
+  //   db.userdata.create({
   //       work: req.body.work,
   //       sleep: req.body.sleep,
   //       play: req.body.play,

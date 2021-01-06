@@ -32,11 +32,11 @@ module.exports = function (app) {
       email: req.user.email,
       age: req.user.age
     };
-    let userData = {
-      work: req.user.work,
-      sleep: req.user.sleep,
-      play: req.user.play
-    };
+    // let userdata = {
+    //   work: req.user.work,
+    //   sleep: req.user.sleep,
+    //   play: req.user.play
+    // };
     res.render("profile", user);
     // res.render("profile", userData);
   });

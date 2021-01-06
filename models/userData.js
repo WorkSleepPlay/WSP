@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var userData = sequelize.define("userData", {
+    var userdata = sequelize.define("userdata", {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -25,20 +25,20 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         freezeTableName: true
     });
-    userData.associate = function (models) {
-        userData.belongsTo(models.user, {
+    userdata.associate = function (models) {
+        userdata.belongsTo(models.user, {
             foreignKey: {
                 allowNull: false
             }
         });
-        // userData.belongsTo(models.actionType, {
+        // userdata.belongsTo(models.actionType, {
         //     foreignKey: {
         //         allowNull: false,
         //         name: "actionType"
         //     }
         // });
     };
-    return userData;
+    return userdata;
 };
 
 

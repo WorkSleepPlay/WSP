@@ -53,7 +53,7 @@ module.exports = function (sequelize, DataTypes) {
         freezeTableName: true
     });
     user.associate = function (models) {
-        user.hasMany(models.userData, {
+        user.hasMany(models.userdata, {
             onDelete: "cascade"
         });
     };
