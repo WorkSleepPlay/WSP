@@ -11,7 +11,6 @@ $(document).ready(function () {
 
   function profileInfo() {
     $.get("/api/user", function (req, res) {
-      console.log(req);
       if (req) {
         fullName = req.fullName;
         email = req.email;
@@ -21,7 +20,7 @@ $(document).ready(function () {
       }
     }).then(function (dbUser) {
       $.get("/api/user/" + id, function (req, res) {
-        console.log(res);
+        console.log("user data", res);
       })
     });
 

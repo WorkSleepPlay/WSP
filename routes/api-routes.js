@@ -30,15 +30,22 @@ module.exports = function (app) {
 
   //USER TABLE API ROUTES
   app.get("/api/user", function (req, res) {
-    if (req.user) {
+    console.log("api/user req", req)
+    // if (req.user) {
       res.json({
-        user: req.user
+        fullName: req.user.fullName,
+        email: req.user.email,
+        age: req.user.age,
+        createdAt: req.user.createdAt,
+        id: req.user.id
       })
-    }
+    // }
 
   });
   app.get("/api/user/:id", function (req, res) {
     // if (!req.user) {
+
+    console.log("line 48 id", req.params.id)
     db.user
       .findOne({
         where: {
@@ -49,7 +56,8 @@ module.exports = function (app) {
         }],
       })
       .then(function (dbUser) {
-        console.log(dbUser);
+        // console.log("/api/user/:id", dbUser);
+        console.log("dbUser userData", dbUser.dataValues.userdata[0])
         res.json({
           // email: req.user.email,
           // id: req.user.id,
@@ -91,7 +99,7 @@ module.exports = function (app) {
           duration: req.body.duration,
           userId: req.user.id
         })
-        .then(function (dbUser) {
+        .then(function (newData) {
           res.redirect("/home");
         })
         .catch(function (err) {
