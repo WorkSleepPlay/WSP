@@ -1,4 +1,5 @@
 var path = require("path");
+var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
@@ -27,17 +28,33 @@ module.exports = function (app) {
 
   //PROFILE USER HTML ROUTES
   app.get("/profile", isAuthenticated, function (req, res) {
-    let user = {
-      fullName: req.user.fullName,
-      email: req.user.email,
-      age: req.user.age
-    };
-    // let userdata = {
-    //   work: req.user.work,
-    //   sleep: req.user.sleep,
-    //   play: req.user.play
-    // };
-    res.render("profile", user);
-    // res.render("profile", userData);
+    db.user
+      .findOne({
+        where: {
+          id: req.user.id,
+        },
+        include: [{
+          model: db.userdata
+        }]
+      }).then(function (dbUser) {
+        const newUserData = dbUser.userdata.map(data => {
+          return {
+            actionType: data.actionType,
+            day: data.day,
+            duration: data.duration
+          }
+        });
+
+        let user = {
+          fullName: req.user.fullName,
+          email: req.user.email,
+          age: req.user.age,
+          createdAt: req.user.createdAt,
+          userData: newUserData
+        };
+        console.log("newUserData", newUserData)
+        res.render("profile", user);
+      });
+
   });
 };

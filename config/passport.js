@@ -33,7 +33,6 @@ passport.use(
           // }
           // If none of the above, return the user
           // req.session.email = dbUser.email;
-          console.log(dbUser);
           return done(null, dbUser);
         });
     }

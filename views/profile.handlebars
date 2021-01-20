@@ -6,7 +6,7 @@
     <div class="work-feature-block row flex-container align-center">
 
         {{!-- Profile Picture --}}
-        <div columns small-6>
+        <div class="columns small-6">
             <div>
                 <img class="work-feature-block-image" src="/assets/img/coolsanta.jpg" alt="cool santa" width="200"
                     height="200" />
@@ -14,8 +14,8 @@
         </div>
 
         {{!-- Profile Info Pulled From User Table In DB --}}
-        <div columns small-6 class="work-feature-block-profile">
-            <div row>
+        <div class="columns small-6 work-feature-block-profile">
+            <div class="row">
                 <ul><strong>Full Name: </strong>{{ fullName }}</ul>
                 <ul><strong>Email: </strong>{{ email }}</ul>
                 <ul><strong>Age: </strong>{{ age }}</ul>
@@ -25,18 +25,23 @@
     </div>
 
     <h2 class="work-feature-block-header row">My Productivity</h2>
+    <div class="row">
+        <h2>user data here</h2>
+        {{#each userData}}
+            <h3>Action type: {{ actionType }}</h3>
+            <p>Day: {{ day }}</p>
+            <p>Duration: {{ duration }}</p>
+        {{/each}}
+    </div>
+
     <div class="work-feature-block row flex-container align-center">
         {{!-- Profile Info Pulled From User Table In DB --}}
-        <div columns small-6 class="work-feature-block-profile">
-            {{!-- {{#each userData}} --}}
-            <h1>{{ userdata }}</h1>
-            {{!-- {{/each}} --}}
-            <div row>
+        <div class="columns small-6 work-feature-block-profile">
+            <div class="row">
 
                 {{!-- <canvas id="myChart" width="400" height="400"></canvas> --}}
                 <canvas id="myChart" width="800" height="600"></canvas>
                 <script>
-
                     var ctx = document.getElementById('myChart').getContext('2d');
                     var myChart = new Chart(ctx, {
                         type: 'bar',

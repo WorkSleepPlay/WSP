@@ -4,6 +4,8 @@ $(document).ready(function () {
   var email;
   var age;
   var id;
+  var createdAt;
+  var userData;
 
   profileInfo();
   // createData();
@@ -16,15 +18,16 @@ $(document).ready(function () {
         email = req.email;
         age = req.age;
         id = req.id;
-        createdAt = req.createdAt
-      }
-    }).then(function (dbUser) {
-      $.get("/api/user/" + id, function (req, res) {
-        console.log("user data", res);
-      })
-    });
+        createdAt = req.createdAt;
 
-  };
+        $.get("/api/user/" + id, function (req, res) {
+          userData = req;
+          // userData is array of activities
+        })
+  
+      }
+    })
+  }
 });
 
 // function userData() {
